@@ -2,6 +2,7 @@
     "accounting-service": {
         "name": "accounting-service",
         "region": "us-central1",
+        "env": "prod",
         "service": "accounting-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -12,6 +13,7 @@
     "api-proxy": {
         "name": "api-proxy",
         "region": "us-central1",
+        "env": "prod",
         "service": "api-proxy",
         "memory_size": 1,
         "type": "redis_instance",
@@ -22,6 +24,7 @@
     "appointments-resque": {
         "name": "appointments-resque",
         "region": "us-central1",
+        "env": "prod",
         "service": "appointment_engine",
         "memory_size": 1,
         "type": "redis_instance",
@@ -32,6 +35,7 @@
     "arbitration": {
         "name": "arbitration",
         "region": "us-central1",
+        "env": "prod",
         "service": "arbitration-service",
         "shard_count": 3,
         "node_type": "REDIS_HIGHMEM_MEDIUM",
@@ -45,6 +49,7 @@
     "badges": {
         "name": "badges",
         "region": "us-central1",
+        "env": "prod",
         "service": "badges-service",
         "shard_count": 3,
         "node_type": "REDIS_SHARED_CORE_NANO",
@@ -57,6 +62,7 @@
     "bookingtool-cache": {
         "name": "bookingtool-cache",
         "region": "us-central1",
+        "env": "prod",
         "service": "bookingtool",
         "memory_size": 1,
         "type": "redis_instance",
@@ -67,6 +73,7 @@
     "calendar-service-cache": {
         "name": "calendar-service-cache",
         "region": "us-central1",
+        "env": "prod",
         "service": "calendar-service",
         "memory_size": 2,
         "type": "redis_instance",
@@ -77,6 +84,7 @@
     "casesservice-cache": {
         "name": "casesservice-cache",
         "region": "us-central1",
+        "env": "prod",
         "service": "mx-merchant-cases",
         "memory_size": 1,
         "type": "redis_instance",
@@ -87,6 +95,7 @@
     "clo-itier": {
         "name": "clo-itier",
         "region": "us-central1",
+        "env": "prod",
         "service": "clo-itier",
         "memory_size": 1,
         "type": "redis_instance",
@@ -97,6 +106,7 @@
     "clo-service": {
         "name": "clo-service",
         "region": "us-central1",
+        "env": "prod",
         "service": "clo-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -107,6 +117,7 @@
     "clo-service-jtier": {
         "name": "clo-service-jtier",
         "region": "us-central1",
+        "env": "prod",
         "service": "clo-inventory-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -117,6 +128,7 @@
     "coupon-worker": {
         "name": "coupon-worker",
         "region": "us-central1",
+        "env": "prod",
         "service": "coupons-revproc",
         "memory_size": 1,
         "type": "redis_instance",
@@ -127,6 +139,7 @@
     "coupons-inventory": {
         "name": "coupons-inventory",
         "region": "us-central1",
+        "env": "prod",
         "service": "coupons-inventory-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -137,6 +150,7 @@
     "crm-message-service": {
         "name": "crm-message-service",
         "region": "us-central1",
+        "env": "prod",
         "service": "crm-message-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -147,6 +161,7 @@
     "cs-api": {
         "name": "cs-api",
         "region": "us-central1",
+        "env": "prod",
         "service": "cs-api",
         "memory_size": 1,
         "type": "redis_instance",
@@ -157,6 +172,7 @@
     "custsvc": {
         "name": "custsvc",
         "region": "us-central1",
+        "env": "prod",
         "service": "cyclops",
         "memory_size": 2,
         "type": "redis_instance",
@@ -168,6 +184,7 @@
     "custsvc-tokenizer": {
         "name": "custsvc-tokenizer",
         "region": "us-central1",
+        "env": "prod",
         "service": "cs-token-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -178,6 +195,7 @@
     "deal-book-service": {
         "name": "deal-book-service",
         "region": "us-central1",
+        "env": "prod",
         "service": "deal-book-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -188,6 +206,7 @@
     "dealestate-configuration": {
         "name": "dealestate-configuration",
         "region": "us-central1",
+        "env": "prod",
         "service": "deal-estate",
         "memory_size": 1,
         "type": "redis_instance",
@@ -198,6 +217,7 @@
     "dealestate-resque": {
         "name": "dealestate-resque",
         "region": "us-central1",
+        "env": "prod",
         "service": "deal-estate",
         "memory_size": 1,
         "type": "redis_instance",
@@ -208,6 +228,7 @@
     "deckard-async": {
         "name": "deckard-async",
         "region": "us-central1",
+        "env": "prod",
         "service": "deckard",
         "memory_size": 1,
         "type": "redis_instance",
@@ -218,6 +239,7 @@
     "deckard-cache": {
         "name": "deckard-cache",
         "region": "us-central1",
+        "env": "prod",
         "service": "deckard",
         "shard_count": 3,
         "node_type": "REDIS_STANDARD_SMALL",
@@ -230,6 +252,7 @@
     "dispatcher-cache": {
         "name": "dispatcher-cache",
         "region": "us-central1",
+        "env": "prod",
         "service": "rocketman-commercial",
         "shard_count": 7,
         "node_type": "REDIS_HIGHMEM_MEDIUM",
@@ -242,6 +265,7 @@
     "dlsvc-shield-cache": {
         "name": "dlsvc-shield-cache",
         "region": "us-central1",
+        "env": "prod",
         "service": "deal-catalog",
         "shard_count": 12,
         "node_type": "REDIS_HIGHMEM_MEDIUM",
@@ -254,6 +278,7 @@
     "dlsvc-shield-queue": {
         "name": "dlsvc-shield-queue",
         "region": "us-central1",
+        "env": "prod",
         "service": "deal-catalog",
         "memory_size": 1,
         "type": "redis_instance",
@@ -265,6 +290,7 @@
     "editorial-writers": {
         "name": "editorial-writers",
         "region": "us-central1",
+        "env": "prod",
         "service": "gazebo",
         "memory_size": 1,
         "type": "redis_instance",
@@ -275,6 +301,7 @@
     "epods": {
         "name": "epods",
         "region": "us-central1",
+        "env": "prod",
         "service": "epods",
         "memory_size": 1,
         "type": "redis_instance",
@@ -285,6 +312,7 @@
     "fraud": {
         "name": "fraud",
         "region": "us-central1",
+        "env": "prod",
         "service": "orders",
         "memory_size": 4,
         "type": "redis_instance",
@@ -295,6 +323,7 @@
     "geo-bhuvan-cache": {
         "name": "geo-bhuvan-cache",
         "region": "us-central1",
+        "env": "prod",
         "service": "bhuvan",
         "shard_count": 3,
         "node_type": "REDIS_STANDARD_SMALL",
@@ -307,6 +336,7 @@
     "geo-bhuvan-geoms": {
         "name": "geo-bhuvan-geoms",
         "region": "us-central1",
+        "env": "prod",
         "service": "bhuvan",
         "shard_count": 3,
         "node_type": "REDIS_SHARED_CORE_NANO",
@@ -319,6 +349,7 @@
     "geo-bhuvan-indexer": {
         "name": "geo-bhuvan-indexer",
         "region": "us-central1",
+        "env": "prod",
         "service": "bhuvan",
         "shard_count": 3,
         "node_type": "REDIS_SHARED_CORE_NANO",
@@ -331,6 +362,7 @@
     "getaways-inventory": {
         "name": "getaways-inventory",
         "region": "us-central1",
+        "env": "prod",
         "service": "getaways-inventory",
         "memory_size": 1,
         "type": "redis_instance",
@@ -341,6 +373,7 @@
     "getaways-inventory-product": {
         "name": "getaways-inventory-product",
         "region": "us-central1",
+        "env": "prod",
         "service": "getaways-inventory",
         "memory_size": 1,
         "type": "redis_instance",
@@ -351,6 +384,7 @@
     "getaways-search-cache": {
         "name": "getaways-search-cache",
         "region": "us-central1",
+        "env": "prod",
         "service": "travel-search",
         "memory_size": 8,
         "type": "redis_instance",
@@ -361,6 +395,7 @@
     "glive-gia": {
         "name": "glive-gia",
         "region": "us-central1",
+        "env": "prod",
         "service": "grouponlive-inventory-admin",
         "memory_size": 1,
         "type": "redis_instance",
@@ -371,6 +406,7 @@
     "glive-inventory": {
         "name": "glive-inventory",
         "region": "us-central1",
+        "env": "prod",
         "service": "grouponlive-inventory-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -381,6 +417,7 @@
     "goods-inventory-service": {
         "name": "goods-inventory-service",
         "region": "us-central1",
+        "env": "prod",
         "service": "goods-inventory-service",
         "shard_count": 3,
         "node_type": "REDIS_STANDARD_SMALL",
@@ -393,6 +430,7 @@
     "goods-market-pricing": {
         "name": "goods-market-pricing",
         "region": "us-central1",
+        "env": "prod",
         "service": "goods-market-pricing",
         "memory_size": 1,
         "type": "redis_instance",
@@ -403,6 +441,7 @@
     "goods-stores": {
         "name": "goods-stores",
         "region": "us-central1",
+        "env": "prod",
         "service": "goods_stores",
         "memory_size": 2,
         "type": "redis_instance",
@@ -413,6 +452,7 @@
     "goodscentral": {
         "name": "goodscentral",
         "region": "us-central1",
+        "env": "prod",
         "service": "goods_commerce_interface",
         "memory_size": 1,
         "type": "redis_instance",
@@ -423,6 +463,7 @@
     "holmes-deal-rt-goods": {
         "name": "holmes-deal-rt-goods",
         "region": "us-central1",
+        "env": "prod",
         "service": "holmes-feature-pipelines",
         "memory_size": 1,
         "type": "redis_instance",
@@ -433,6 +474,7 @@
     "holmes-deal-rt-loci": {
         "name": "holmes-deal-rt-loci",
         "region": "us-central1",
+        "env": "prod",
         "service": "holmes-feature-pipelines",
         "memory_size": 1,
         "type": "redis_instance",
@@ -443,6 +485,7 @@
     "holmes-deals-rt-core-ranking": {
         "name": "holmes-deals-rt-core-ranking",
         "region": "us-central1",
+        "env": "prod",
         "service": "holmes-feature-pipelines",
         "memory_size": 20,
         "type": "redis_instance",
@@ -453,6 +496,7 @@
     "holmes-deals-rt-dsp": {
         "name": "holmes-deals-rt-dsp",
         "region": "us-central1",
+        "env": "prod",
         "service": "holmes-feature-pipelines",
         "memory_size": 1,
         "type": "redis_instance",
@@ -463,6 +507,7 @@
     "holmes-lovo-rvd": {
         "name": "holmes-lovo-rvd",
         "region": "us-central1",
+        "env": "prod",
         "service": "watson-api",
         "memory_size": 17,
         "type": "redis_instance",
@@ -473,6 +518,7 @@
     "holmes-user-identities": {
         "name": "holmes-user-identities",
         "region": "us-central1",
+        "env": "prod",
         "service": "watson-api",
         "memory_size": 10,
         "type": "redis_instance",
@@ -483,6 +529,7 @@
     "holmes-user-rt-marketing": {
         "name": "holmes-user-rt-marketing",
         "region": "us-central1",
+        "env": "prod",
         "service": "holmes-feature-pipelines",
         "memory_size": 1,
         "type": "redis_instance",
@@ -493,6 +540,7 @@
     "holmes-user-rt-search-eng": {
         "name": "holmes-user-rt-search-eng",
         "region": "us-central1",
+        "env": "prod",
         "service": "holmes-feature-pipelines",
         "memory_size": 1,
         "type": "redis_instance",
@@ -503,6 +551,7 @@
     "inbox-mgmt-email-prod-users01": {
         "name": "inbox-mgmt-email-prod-users01",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -513,6 +562,7 @@
     "inbox-mgmt-email-prod-users02": {
         "name": "inbox-mgmt-email-prod-users02",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -523,6 +573,7 @@
     "inbox-mgmt-email-prod-users03": {
         "name": "inbox-mgmt-email-prod-users03",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -533,6 +584,7 @@
     "inbox-mgmt-email-prod-users04": {
         "name": "inbox-mgmt-email-prod-users04",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -543,6 +595,7 @@
     "inbox-mgmt-email-prod-users05": {
         "name": "inbox-mgmt-email-prod-users05",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -553,6 +606,7 @@
     "inbox-mgmt-email-prod-users06": {
         "name": "inbox-mgmt-email-prod-users06",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -563,6 +617,7 @@
     "inbox-mgmt-email-prod-users07": {
         "name": "inbox-mgmt-email-prod-users07",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -573,6 +628,7 @@
     "inbox-mgmt-email-prod-users08": {
         "name": "inbox-mgmt-email-prod-users08",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -583,6 +639,7 @@
     "inbox-mgmt-email-prod-users09": {
         "name": "inbox-mgmt-email-prod-users09",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -593,6 +650,7 @@
     "inbox-mgmt-email-prod-users10": {
         "name": "inbox-mgmt-email-prod-users10",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -603,6 +661,7 @@
     "inbox-mgmt-email-prod-users11": {
         "name": "inbox-mgmt-email-prod-users11",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -613,6 +672,7 @@
     "inbox-mgmt-email-prod-users12": {
         "name": "inbox-mgmt-email-prod-users12",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -623,6 +683,7 @@
     "inbox-mgmt-email-prod-users13": {
         "name": "inbox-mgmt-email-prod-users13",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -633,6 +694,7 @@
     "inbox-mgmt-email-prod-users14": {
         "name": "inbox-mgmt-email-prod-users14",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -643,6 +705,7 @@
     "inbox-mgmt-email-prod-users15": {
         "name": "inbox-mgmt-email-prod-users15",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -653,6 +716,7 @@
     "inbox-mgmt-email-prod-users16": {
         "name": "inbox-mgmt-email-prod-users16",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -663,6 +727,7 @@
     "inbox-mgmt-email-prod-users17": {
         "name": "inbox-mgmt-email-prod-users17",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -673,6 +738,7 @@
     "inbox-mgmt-email-prod-users18": {
         "name": "inbox-mgmt-email-prod-users18",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -683,6 +749,7 @@
     "inbox-mgmt-email-prod-users19": {
         "name": "inbox-mgmt-email-prod-users19",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -693,6 +760,7 @@
     "inbox-mgmt-email-prod-users20": {
         "name": "inbox-mgmt-email-prod-users20",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -703,6 +771,7 @@
     "inbox-mgmt-email-prod-users21": {
         "name": "inbox-mgmt-email-prod-users21",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -713,6 +782,7 @@
     "inbox-mgmt-email-prod-users22": {
         "name": "inbox-mgmt-email-prod-users22",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -723,6 +793,7 @@
     "inbox-mgmt-email-prod-users23": {
         "name": "inbox-mgmt-email-prod-users23",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -733,6 +804,7 @@
     "inbox-mgmt-email-prod-users24": {
         "name": "inbox-mgmt-email-prod-users24",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -743,6 +815,7 @@
     "inbox-mgmt-email-prod-users25": {
         "name": "inbox-mgmt-email-prod-users25",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -753,6 +826,7 @@
     "inbox-mgmt-email-prod-users26": {
         "name": "inbox-mgmt-email-prod-users26",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -763,6 +837,7 @@
     "inbox-mgmt-email-prod-users27": {
         "name": "inbox-mgmt-email-prod-users27",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -773,6 +848,7 @@
     "inbox-mgmt-email-prod-users28": {
         "name": "inbox-mgmt-email-prod-users28",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -783,6 +859,7 @@
     "inbox-mgmt-email-prod-users29": {
         "name": "inbox-mgmt-email-prod-users29",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -793,6 +870,7 @@
     "inbox-mgmt-email-prod-users30": {
         "name": "inbox-mgmt-email-prod-users30",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -803,6 +881,7 @@
     "inbox-mgmt-email-prod-users31": {
         "name": "inbox-mgmt-email-prod-users31",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -813,6 +892,7 @@
     "inbox-mgmt-email-prod-users32": {
         "name": "inbox-mgmt-email-prod-users32",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 6,
         "type": "redis_instance",
@@ -823,6 +903,7 @@
     "inbox-mgmt-mobile-prod-users01": {
         "name": "inbox-mgmt-mobile-prod-users01",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -833,6 +914,7 @@
     "inbox-mgmt-mobile-prod-users02": {
         "name": "inbox-mgmt-mobile-prod-users02",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -843,6 +925,7 @@
     "inbox-mgmt-mobile-prod-users03": {
         "name": "inbox-mgmt-mobile-prod-users03",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -853,6 +936,7 @@
     "inbox-mgmt-mobile-prod-users04": {
         "name": "inbox-mgmt-mobile-prod-users04",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -863,6 +947,7 @@
     "inbox-mgmt-mobile-prod-users05": {
         "name": "inbox-mgmt-mobile-prod-users05",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -873,6 +958,7 @@
     "inbox-mgmt-mobile-prod-users06": {
         "name": "inbox-mgmt-mobile-prod-users06",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -883,6 +969,7 @@
     "inbox-mgmt-mobile-prod-users07": {
         "name": "inbox-mgmt-mobile-prod-users07",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -893,6 +980,7 @@
     "inbox-mgmt-mobile-prod-users08": {
         "name": "inbox-mgmt-mobile-prod-users08",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -903,6 +991,7 @@
     "inbox-mgmt-mobile-prod-users09": {
         "name": "inbox-mgmt-mobile-prod-users09",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -913,6 +1002,7 @@
     "inbox-mgmt-mobile-prod-users10": {
         "name": "inbox-mgmt-mobile-prod-users10",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -923,6 +1013,7 @@
     "inbox-mgmt-mobile-prod-users11": {
         "name": "inbox-mgmt-mobile-prod-users11",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -933,6 +1024,7 @@
     "inbox-mgmt-mobile-prod-users12": {
         "name": "inbox-mgmt-mobile-prod-users12",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -943,6 +1035,7 @@
     "inbox-mgmt-mobile-prod-users13": {
         "name": "inbox-mgmt-mobile-prod-users13",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -953,6 +1046,7 @@
     "inbox-mgmt-mobile-prod-users14": {
         "name": "inbox-mgmt-mobile-prod-users14",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -963,6 +1057,7 @@
     "inbox-mgmt-mobile-prod-users15": {
         "name": "inbox-mgmt-mobile-prod-users15",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -973,6 +1068,7 @@
     "inbox-mgmt-mobile-prod-users16": {
         "name": "inbox-mgmt-mobile-prod-users16",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -983,6 +1079,7 @@
     "inbox-mgmt-mobile-prod-users17": {
         "name": "inbox-mgmt-mobile-prod-users17",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -993,6 +1090,7 @@
     "inbox-mgmt-mobile-prod-users18": {
         "name": "inbox-mgmt-mobile-prod-users18",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -1003,6 +1101,7 @@
     "inbox-mgmt-mobile-prod-users19": {
         "name": "inbox-mgmt-mobile-prod-users19",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -1013,6 +1112,7 @@
     "inbox-mgmt-mobile-prod-users20": {
         "name": "inbox-mgmt-mobile-prod-users20",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -1023,6 +1123,7 @@
     "inbox-mgmt-mobile-prod-users21": {
         "name": "inbox-mgmt-mobile-prod-users21",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -1033,6 +1134,7 @@
     "inbox-mgmt-mobile-prod-users22": {
         "name": "inbox-mgmt-mobile-prod-users22",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -1043,6 +1145,7 @@
     "inbox-mgmt-mobile-prod-users23": {
         "name": "inbox-mgmt-mobile-prod-users23",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -1053,6 +1156,7 @@
     "inbox-mgmt-mobile-prod-users24": {
         "name": "inbox-mgmt-mobile-prod-users24",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -1063,6 +1167,7 @@
     "inbox-mgmt-mobile-prod-users25": {
         "name": "inbox-mgmt-mobile-prod-users25",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -1073,6 +1178,7 @@
     "inbox-mgmt-mobile-prod-users26": {
         "name": "inbox-mgmt-mobile-prod-users26",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -1083,6 +1189,7 @@
     "inbox-mgmt-mobile-prod-users27": {
         "name": "inbox-mgmt-mobile-prod-users27",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -1093,6 +1200,7 @@
     "inbox-mgmt-mobile-prod-users28": {
         "name": "inbox-mgmt-mobile-prod-users28",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -1103,6 +1211,7 @@
     "inbox-mgmt-mobile-prod-users29": {
         "name": "inbox-mgmt-mobile-prod-users29",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -1113,6 +1222,7 @@
     "inbox-mgmt-mobile-prod-users30": {
         "name": "inbox-mgmt-mobile-prod-users30",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -1123,6 +1233,7 @@
     "inbox-mgmt-mobile-prod-users31": {
         "name": "inbox-mgmt-mobile-prod-users31",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -1133,6 +1244,7 @@
     "inbox-mgmt-mobile-prod-users32": {
         "name": "inbox-mgmt-mobile-prod-users32",
         "region": "us-central1",
+        "env": "prod",
         "service": "inbox_management_platform",
         "memory_size": 4,
         "type": "redis_instance",
@@ -1143,6 +1255,7 @@
     "incentive-cache": {
         "name": "incentive-cache",
         "region": "us-central1",
+        "env": "prod",
         "service": "incentive-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1153,6 +1266,7 @@
     "ingestion-cache": {
         "name": "ingestion-cache",
         "region": "us-central1",
+        "env": "prod",
         "service": "ingestion-jtier",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1163,6 +1277,7 @@
     "janus00": {
         "name": "janus00",
         "region": "us-central1",
+        "env": "prod",
         "service": "janus",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1173,6 +1288,7 @@
     "janus01": {
         "name": "janus01",
         "region": "us-central1",
+        "env": "prod",
         "service": "janus",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1183,6 +1299,7 @@
     "janus02": {
         "name": "janus02",
         "region": "us-central1",
+        "env": "prod",
         "service": "janus",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1193,6 +1310,7 @@
     "janus03": {
         "name": "janus03",
         "region": "us-central1",
+        "env": "prod",
         "service": "janus",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1203,6 +1321,7 @@
     "janus04": {
         "name": "janus04",
         "region": "us-central1",
+        "env": "prod",
         "service": "janus",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1213,6 +1332,7 @@
     "janus05": {
         "name": "janus05",
         "region": "us-central1",
+        "env": "prod",
         "service": "janus",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1223,6 +1343,7 @@
     "janus06": {
         "name": "janus06",
         "region": "us-central1",
+        "env": "prod",
         "service": "janus",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1233,6 +1354,7 @@
     "janus07": {
         "name": "janus07",
         "region": "us-central1",
+        "env": "prod",
         "service": "janus",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1243,6 +1365,7 @@
     "janus08": {
         "name": "janus08",
         "region": "us-central1",
+        "env": "prod",
         "service": "janus",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1253,6 +1376,7 @@
     "janus09": {
         "name": "janus09",
         "region": "us-central1",
+        "env": "prod",
         "service": "janus",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1263,6 +1387,7 @@
     "janus10": {
         "name": "janus10",
         "region": "us-central1",
+        "env": "prod",
         "service": "janus",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1273,6 +1398,7 @@
     "janus11": {
         "name": "janus11",
         "region": "us-central1",
+        "env": "prod",
         "service": "janus",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1283,6 +1409,7 @@
     "janus12": {
         "name": "janus12",
         "region": "us-central1",
+        "env": "prod",
         "service": "janus",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1293,6 +1420,7 @@
     "janus13": {
         "name": "janus13",
         "region": "us-central1",
+        "env": "prod",
         "service": "janus",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1303,6 +1431,7 @@
     "janus14": {
         "name": "janus14",
         "region": "us-central1",
+        "env": "prod",
         "service": "janus",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1313,6 +1442,7 @@
     "janus15": {
         "name": "janus15",
         "region": "us-central1",
+        "env": "prod",
         "service": "janus",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1323,6 +1453,7 @@
     "jarvis": {
         "name": "jarvis",
         "region": "us-central1",
+        "env": "prod",
         "service": "jarvis",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1333,6 +1464,7 @@
     "layout-service-templates": {
         "name": "layout-service-templates",
         "region": "us-central1",
+        "env": "prod",
         "service": "layout-service",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1343,6 +1475,7 @@
     "m3-merchant-service-cache": {
         "name": "m3-merchant-service-cache",
         "region": "us-central1",
+        "env": "prod",
         "service": "m3_merchant_service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1353,6 +1486,7 @@
     "m3-placeread": {
         "name": "m3-placeread",
         "region": "us-central1",
+        "env": "prod",
         "service": "m3_placeread",
         "shard_count": 3,
         "node_type": "REDIS_SHARED_CORE_NANO",
@@ -1365,6 +1499,7 @@
     "mds": {
         "name": "mds",
         "region": "us-central1",
+        "env": "prod",
         "service": "marketing-deal-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1375,6 +1510,7 @@
     "merchant-advisor": {
         "name": "merchant-advisor",
         "region": "us-central1",
+        "env": "prod",
         "service": "merchant-advisor-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1385,6 +1521,7 @@
     "metro": {
         "name": "metro",
         "region": "us-central1",
+        "env": "prod",
         "service": "draft-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1395,6 +1532,7 @@
     "minos-cache": {
         "name": "minos-cache",
         "region": "us-central1",
+        "env": "prod",
         "service": "minos",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1405,6 +1543,7 @@
     "mobilebot": {
         "name": "mobilebot",
         "region": "us-central1",
+        "env": "prod",
         "service": "mobilebot",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1415,6 +1554,7 @@
     "next-pwa": {
         "name": "next-pwa",
         "region": "us-central1",
+        "env": "prod",
         "service": "next-pwa-app",
         "shard_count": 3,
         "node_type": "REDIS_HIGHMEM_XLARGE",
@@ -1427,6 +1567,7 @@
     "ob-3rd-party-resque": {
         "name": "ob-3rd-party-resque",
         "region": "us-central1",
+        "env": "prod",
         "service": "online_booking_3rd_party",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1437,6 +1578,7 @@
     "orders": {
         "name": "orders",
         "region": "us-central1",
+        "env": "prod",
         "service": "orders",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1447,6 +1589,7 @@
     "oxygen": {
         "name": "oxygen",
         "region": "us-central1",
+        "env": "prod",
         "service": "jtier-oxygen",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1457,6 +1600,7 @@
     "pricing": {
         "name": "pricing",
         "region": "us-central1",
+        "env": "prod",
         "service": "pricing_service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1467,6 +1611,7 @@
     "prodcat": {
         "name": "prodcat",
         "region": "us-central1",
+        "env": "prod",
         "service": "prodcat",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1477,6 +1622,7 @@
     "proximity-cache": {
         "name": "proximity-cache",
         "region": "us-central1",
+        "env": "prod",
         "service": "proximity_notifications",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1487,6 +1633,7 @@
     "quantum-lead": {
         "name": "quantum-lead",
         "region": "us-central1",
+        "env": "prod",
         "service": "salesforce-cache",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1497,6 +1644,7 @@
     "rapi-citrus-ads": {
         "name": "rapi-citrus-ads",
         "region": "us-central1",
+        "env": "prod",
         "service": "relevance",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1507,6 +1655,7 @@
     "rapi-pagination": {
         "name": "rapi-pagination",
         "region": "us-central1",
+        "env": "prod",
         "service": "relevance",
         "shard_count": 3,
         "node_type": "REDIS_STANDARD_SMALL",
@@ -1519,6 +1668,7 @@
     "rapi-rt-deal-show": {
         "name": "rapi-rt-deal-show",
         "region": "us-central1",
+        "env": "prod",
         "service": "relevance",
         "shard_count": 5,
         "node_type": "REDIS_HIGHMEM_XLARGE",
@@ -1531,6 +1681,7 @@
     "regla": {
         "name": "regla",
         "region": "us-central1",
+        "env": "prod",
         "service": "regla",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1541,6 +1692,7 @@
     "relevance-sponsored-deals": {
         "name": "relevance-sponsored-deals",
         "region": "us-central1",
+        "env": "prod",
         "service": "relevance",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1551,6 +1703,7 @@
     "rfs-cache": {
         "name": "rfs-cache",
         "region": "us-central1",
+        "env": "prod",
         "service": "regulatory-consent-log",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1561,6 +1714,7 @@
     "rise": {
         "name": "rise",
         "region": "us-central1",
+        "env": "prod",
         "service": "rise",
         "memory_size": 2,
         "type": "redis_instance",
@@ -1571,6 +1725,7 @@
     "sportal-cache": {
         "name": "sportal-cache",
         "region": "us-central1",
+        "env": "prod",
         "service": "service-portal",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1581,6 +1736,7 @@
     "sportal-workers-sidekiq": {
         "name": "sportal-workers-sidekiq",
         "region": "us-central1",
+        "env": "prod",
         "service": "service-portal",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1591,6 +1747,7 @@
     "supply-chain-gateway-cache": {
         "name": "supply-chain-gateway-cache",
         "region": "us-central1",
+        "env": "prod",
         "service": "supply_chain_gateway",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1601,6 +1758,7 @@
     "targeted-deal-message-cache": {
         "name": "targeted-deal-message-cache",
         "region": "us-central1",
+        "env": "prod",
         "service": "targeted-deal-message",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1611,6 +1769,7 @@
     "taxonomyv2": {
         "name": "taxonomyv2",
         "region": "us-central1",
+        "env": "prod",
         "service": "taxonomyv2",
         "memory_size": 4,
         "type": "redis_instance",
@@ -1621,6 +1780,7 @@
     "ticketsvc": {
         "name": "ticketsvc",
         "region": "us-central1",
+        "env": "prod",
         "service": "ticketing_service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1631,6 +1791,7 @@
     "tpis": {
         "name": "tpis",
         "region": "us-central1",
+        "env": "prod",
         "service": "tpis-third-party-inventory-service",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1641,6 +1802,7 @@
     "transporter": {
         "name": "transporter",
         "region": "us-central1",
+        "env": "prod",
         "service": "transporter",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1651,6 +1813,7 @@
     "ttd-gia-resque": {
         "name": "ttd-gia-resque",
         "region": "us-central1",
+        "env": "prod",
         "service": "grouponlive-inventory-admin",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1661,6 +1824,7 @@
     "ttd-gis-cache": {
         "name": "ttd-gis-cache",
         "region": "us-central1",
+        "env": "prod",
         "service": "grouponlive-inventory-service",
         "memory_size": 16,
         "type": "redis_instance",
@@ -1671,6 +1835,7 @@
     "ugc": {
         "name": "ugc",
         "region": "us-central1",
+        "env": "prod",
         "service": "ugc-api-jtier",
         "memory_size": 4,
         "type": "redis_instance",
@@ -1681,6 +1846,7 @@
     "ugc-cache": {
         "name": "ugc-cache",
         "region": "us-central1",
+        "env": "prod",
         "service": "ugc-api-jtier",
         "shard_count": 5,
         "node_type": "REDIS_STANDARD_SMALL",
@@ -1693,6 +1859,7 @@
     "users-service": {
         "name": "users-service",
         "region": "us-central1",
+        "env": "prod",
         "service": "users-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1703,6 +1870,7 @@
     "vis": {
         "name": "vis",
         "region": "us-central1",
+        "env": "prod",
         "service": "voucher-inventory-jtier",
         "shard_count": 3,
         "node_type": "REDIS_STANDARD_SMALL",
@@ -1715,6 +1883,7 @@
     "voucher-inventory": {
         "name": "voucher-inventory",
         "region": "us-central1",
+        "env": "prod",
         "service": "voucher-inventory",
         "memory_size": 3,
         "type": "redis_instance",
@@ -1725,6 +1894,7 @@
     "watson-deal-kv": {
         "name": "watson-deal-kv",
         "region": "us-central1",
+        "env": "prod",
         "service": "watson-api",
         "shard_count": 3,
         "node_type": "REDIS_STANDARD_SMALL",
@@ -1737,6 +1907,7 @@
     "watson-freshness": {
         "name": "watson-freshness",
         "region": "us-central1",
+        "env": "prod",
         "service": "watson-api",
         "shard_count": 7,
         "node_type": "REDIS_HIGHMEM_XLARGE",
@@ -1749,6 +1920,7 @@
     "watson-search-kv": {
         "name": "watson-search-kv",
         "region": "us-central1",
+        "env": "prod",
         "service": "watson-api",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1759,6 +1931,7 @@
     "watson-user-kv": {
         "name": "watson-user-kv",
         "region": "us-central1",
+        "env": "prod",
         "service": "watson-api",
         "shard_count": 9,
         "node_type": "REDIS_HIGHMEM_MEDIUM",
@@ -1771,6 +1944,7 @@
     "wishlist": {
         "name": "wishlist",
         "region": "us-central1",
+        "env": "prod",
         "service": "wishlist-service",
         "memory_size": 3,
         "type": "redis_instance",

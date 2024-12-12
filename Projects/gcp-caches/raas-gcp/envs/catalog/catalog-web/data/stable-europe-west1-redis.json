@@ -2,6 +2,7 @@
     "api-proxy": {
         "name": "api-proxy",
         "region": "europe-west1",
+        "env": "stable",
         "service": "api-proxy",
         "memory_size": 1,
         "type": "redis_instance",
@@ -12,6 +13,7 @@
     "appointments-resque": {
         "name": "appointments-resque",
         "region": "europe-west1",
+        "env": "stable",
         "service": "appointment_engine",
         "memory_size": 1,
         "type": "redis_instance",
@@ -22,6 +24,7 @@
     "badges-service": {
         "name": "badges-service",
         "region": "europe-west1",
+        "env": "stable",
         "service": "badges-service",
         "shard_count": 3,
         "node_type": "REDIS_SHARED_CORE_NANO",
@@ -34,6 +37,7 @@
     "billing-record-service": {
         "name": "billing-record-service",
         "region": "europe-west1",
+        "env": "stable",
         "service": "billing-record-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -44,6 +48,7 @@
     "calendar-service-cache": {
         "name": "calendar-service-cache",
         "region": "europe-west1",
+        "env": "stable",
         "service": "calendar-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -54,6 +59,7 @@
     "control": {
         "name": "control",
         "region": "europe-west1",
+        "env": "stable",
         "service": "vouchercloud-idl",
         "memory_size": 1,
         "type": "redis_instance",
@@ -64,6 +70,7 @@
     "coupon-worker": {
         "name": "coupon-worker",
         "region": "europe-west1",
+        "env": "stable",
         "service": "coupons-revproc",
         "memory_size": 1,
         "type": "redis_instance",
@@ -74,6 +81,7 @@
     "crm-message-service": {
         "name": "crm-message-service",
         "region": "europe-west1",
+        "env": "stable",
         "service": "crm-message-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -84,6 +92,7 @@
     "cs-api": {
         "name": "cs-api",
         "region": "europe-west1",
+        "env": "stable",
         "service": "cs-api",
         "memory_size": 1,
         "type": "redis_instance",
@@ -94,6 +103,7 @@
     "custsvc": {
         "name": "custsvc",
         "region": "europe-west1",
+        "env": "stable",
         "service": "cyclops",
         "memory_size": 1,
         "type": "redis_instance",
@@ -104,6 +114,7 @@
     "custsvc-cache": {
         "name": "custsvc-cache",
         "region": "europe-west1",
+        "env": "stable",
         "service": "cyclops",
         "memory_size": 1,
         "type": "redis_instance",
@@ -114,6 +125,7 @@
     "deckard-async": {
         "name": "deckard-async",
         "region": "europe-west1",
+        "env": "stable",
         "service": "deckard",
         "memory_size": 1,
         "type": "redis_instance",
@@ -124,6 +136,7 @@
     "deckard-cache": {
         "name": "deckard-cache",
         "region": "europe-west1",
+        "env": "stable",
         "service": "deckard",
         "memory_size": 1,
         "type": "redis_instance",
@@ -134,6 +147,7 @@
     "dlsvc-shield-cache": {
         "name": "dlsvc-shield-cache",
         "region": "europe-west1",
+        "env": "stable",
         "service": "deal-catalog",
         "shard_count": 3,
         "node_type": "REDIS_STANDARD_SMALL",
@@ -146,6 +160,7 @@
     "dlsvc-shield-queue": {
         "name": "dlsvc-shield-queue",
         "region": "europe-west1",
+        "env": "stable",
         "service": "deal-catalog",
         "memory_size": 7,
         "type": "redis_instance",
@@ -156,6 +171,7 @@
     "fraud": {
         "name": "fraud",
         "region": "europe-west1",
+        "env": "stable",
         "service": "orders",
         "memory_size": 1,
         "type": "redis_instance",
@@ -166,6 +182,7 @@
     "geo-bhuvan-cache": {
         "name": "geo-bhuvan-cache",
         "region": "europe-west1",
+        "env": "stable",
         "service": "bhuvan",
         "shard_count": 3,
         "node_type": "REDIS_SHARED_CORE_NANO",
@@ -178,6 +195,7 @@
     "geo-bhuvan-indexer": {
         "name": "geo-bhuvan-indexer",
         "region": "europe-west1",
+        "env": "stable",
         "service": "bhuvan",
         "shard_count": 3,
         "node_type": "REDIS_SHARED_CORE_NANO",
@@ -190,6 +208,7 @@
     "getaways-inventory": {
         "name": "getaways-inventory",
         "region": "europe-west1",
+        "env": "stable",
         "service": "getaways-inventory",
         "memory_size": 1,
         "type": "redis_instance",
@@ -200,6 +219,7 @@
     "getaways-inventory-product": {
         "name": "getaways-inventory-product",
         "region": "europe-west1",
+        "env": "stable",
         "service": "getaways-inventory",
         "memory_size": 1,
         "type": "redis_instance",
@@ -210,6 +230,7 @@
     "getaways-search-cache": {
         "name": "getaways-search-cache",
         "region": "europe-west1",
+        "env": "stable",
         "service": "travel-search",
         "memory_size": 2,
         "type": "redis_instance",
@@ -220,6 +241,7 @@
     "goods-inventory-service": {
         "name": "goods-inventory-service",
         "region": "europe-west1",
+        "env": "stable",
         "service": "goods-inventory-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -230,6 +252,7 @@
     "holmes-deals-rt-core-ranking": {
         "name": "holmes-deals-rt-core-ranking",
         "region": "europe-west1",
+        "env": "stable",
         "service": "holmes-feature-pipelines",
         "memory_size": 1,
         "type": "redis_instance",
@@ -240,6 +263,7 @@
     "holmes-deals-rt-dsp": {
         "name": "holmes-deals-rt-dsp",
         "region": "europe-west1",
+        "env": "stable",
         "service": "holmes-feature-pipelines",
         "memory_size": 1,
         "type": "redis_instance",
@@ -250,6 +274,7 @@
     "inbox-mgmt-email-stg-users01": {
         "name": "inbox-mgmt-email-stg-users01",
         "region": "europe-west1",
+        "env": "stable",
         "service": "inbox_management_platform",
         "memory_size": 13,
         "type": "redis_instance",
@@ -260,6 +285,7 @@
     "inbox-mgmt-mobile-stg-users01": {
         "name": "inbox-mgmt-mobile-stg-users01",
         "region": "europe-west1",
+        "env": "stable",
         "service": "inbox_management_platform",
         "memory_size": 3,
         "type": "redis_instance",
@@ -270,6 +296,7 @@
     "incentive-cache": {
         "name": "incentive-cache",
         "region": "europe-west1",
+        "env": "stable",
         "service": "incentive-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -280,6 +307,7 @@
     "killbill": {
         "name": "killbill",
         "region": "europe-west1",
+        "env": "stable",
         "service": "killbill-payments",
         "memory_size": 1,
         "type": "redis_instance",
@@ -290,6 +318,7 @@
     "layout-svc-templates": {
         "name": "layout-svc-templates",
         "region": "europe-west1",
+        "env": "stable",
         "service": "layout-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -300,6 +329,7 @@
     "lazlo-deals": {
         "name": "lazlo-deals",
         "region": "europe-west1",
+        "env": "stable",
         "service": "api-lazlo",
         "shard_count": 3,
         "node_type": "REDIS_SHARED_CORE_NANO",
@@ -312,6 +342,7 @@
     "m3-merchant-service-cache": {
         "name": "m3-merchant-service-cache",
         "region": "europe-west1",
+        "env": "stable",
         "service": "m3_merchant_service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -322,6 +353,7 @@
     "m3-placeread": {
         "name": "m3-placeread",
         "region": "europe-west1",
+        "env": "stable",
         "service": "m3_placeread",
         "memory_size": 1,
         "type": "redis_instance",
@@ -332,6 +364,7 @@
     "metro": {
         "name": "metro",
         "region": "europe-west1",
+        "env": "stable",
         "service": "draft-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -344,6 +377,7 @@
     "orders-conveyor": {
         "name": "orders-conveyor",
         "region": "europe-west1",
+        "env": "stable",
         "service": "orders",
         "memory_size": 1,
         "type": "redis_instance",
@@ -354,6 +388,7 @@
     "oxygen": {
         "name": "oxygen",
         "region": "europe-west1",
+        "env": "stable",
         "service": "jtier-oxygen",
         "memory_size": 1,
         "type": "redis_instance",
@@ -365,6 +400,7 @@
     "quantum-lead": {
         "name": "quantum-lead",
         "region": "europe-west1",
+        "env": "stable",
         "service": "salesforce-cache",
         "memory_size": 1,
         "type": "redis_instance",
@@ -375,6 +411,7 @@
     "regla": {
         "name": "regla",
         "region": "europe-west1",
+        "env": "stable",
         "service": "regla",
         "memory_size": 1,
         "type": "redis_instance",
@@ -385,6 +422,7 @@
     "rfs-cache": {
         "name": "rfs-cache",
         "region": "europe-west1",
+        "env": "stable",
         "service": "regulatory-consent-log",
         "memory_size": 1,
         "type": "redis_instance",
@@ -395,6 +433,7 @@
     "rise": {
         "name": "rise",
         "region": "europe-west1",
+        "env": "stable",
         "service": "rise",
         "memory_size": 1,
         "type": "redis_instance",
@@ -405,6 +444,7 @@
     "rm-cache": {
         "name": "rm-cache",
         "region": "europe-west1",
+        "env": "stable",
         "service": "rocketman_v2",
         "shard_count": 3,
         "node_type": "REDIS_SHARED_CORE_NANO",
@@ -418,6 +458,7 @@
     "targeted-deal-message-cache": {
         "name": "targeted-deal-message-cache",
         "region": "europe-west1",
+        "env": "stable",
         "service": "targeted-deal-message",
         "memory_size": 1,
         "type": "redis_instance",
@@ -428,6 +469,7 @@
     "taxonomyv2": {
         "name": "taxonomyv2",
         "region": "europe-west1",
+        "env": "stable",
         "service": "taxonomyv2",
         "memory_size": 7,
         "type": "redis_instance",
@@ -438,6 +480,7 @@
     "ticketsvc": {
         "name": "ticketsvc",
         "region": "europe-west1",
+        "env": "stable",
         "service": "ticketing_service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -448,6 +491,7 @@
     "tpis-third-party-inventory-service": {
         "name": "tpis-third-party-inventory-service",
         "region": "europe-west1",
+        "env": "stable",
         "service": "tpis-third-party-inventory-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -458,6 +502,7 @@
     "ugc": {
         "name": "ugc",
         "region": "europe-west1",
+        "env": "stable",
         "service": "ugc-api-jtier",
         "memory_size": 1,
         "type": "redis_instance",
@@ -468,6 +513,7 @@
     "ugc-cache": {
         "name": "ugc-cache",
         "region": "europe-west1",
+        "env": "stable",
         "service": "ugc-api-jtier",
         "shard_count": 3,
         "node_type": "REDIS_SHARED_CORE_NANO",
@@ -480,6 +526,7 @@
     "users-service": {
         "name": "users-service",
         "region": "europe-west1",
+        "env": "stable",
         "service": "users-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -490,6 +537,7 @@
     "voucher-inventory": {
         "name": "voucher-inventory",
         "region": "europe-west1",
+        "env": "stable",
         "service": "voucher-inventory",
         "memory_size": 1,
         "type": "redis_instance",
@@ -500,6 +548,7 @@
     "voucher-inventory-jtier": {
         "name": "voucher-inventory-jtier",
         "region": "europe-west1",
+        "env": "stable",
         "service": "voucher-inventory-jtier",
         "shard_count": 3,
         "node_type": "REDIS_SHARED_CORE_NANO",
@@ -512,6 +561,7 @@
     "wishlist": {
         "name": "wishlist",
         "region": "europe-west1",
+        "env": "stable",
         "service": "wishlist-service",
         "shard_count": 3,
         "node_type": "REDIS_SHARED_CORE_NANO",

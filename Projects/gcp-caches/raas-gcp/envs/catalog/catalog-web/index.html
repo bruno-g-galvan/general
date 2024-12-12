@@ -9,6 +9,7 @@
 <body>
 
 <div id="filters" style="margin-bottom: 20px;">
+    
     <label for="region-filter">Region:</label>
     <select id="region-filter">
         <option value="">All</option>
@@ -23,6 +24,14 @@
         <option value="redis_instance">Redis Instance</option>
         <option value="redis_cluster">Redis Cluster</option>
         <option value="memcached">Memcached</option>
+        <!-- Add other options based on your available types -->
+    </select>
+
+    <label for="env-filter">Environment:</label>
+    <select id="env-filter">
+        <option value="">All</option>
+        <option value="prod">Production</option>
+        <option value="stable">Stable</option>
         <!-- Add other options based on your available types -->
     </select>
 </div>

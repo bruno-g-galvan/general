@@ -8,20 +8,33 @@ document.getElementById('region-filter').addEventListener('change', function() {
 document.getElementById('type-filter').addEventListener('change', function() {
     filterTable(); // Call filterTable on change without passing arguments
 });
+document.getElementById('env-filter').addEventListener('change', function() {
+    filterTable(); // Call filterTable on change without passing arguments
+});
 
 // Function to filter and generate the table based on the selected filters
 function filterTable() {
     const regionFilter = document.getElementById('region-filter').value.toLowerCase();
     const typeFilter = document.getElementById('type-filter').value.toLowerCase();
+    const envFilter = document.getElementById('env-filter').value.toLowerCase();
+
+    console.log("Filters - Region: ", regionFilter, " Type: ", typeFilter, " Env: ", envFilter);  // Debugging log
 
     const filteredData = allData.filter(entry => {
         let matches = true;
 
+        // Filter by region
         if (regionFilter && entry.region && !entry.region.toLowerCase().includes(regionFilter)) {
             matches = false;
         }
 
+        // Filter by type
         if (typeFilter && entry.type && !entry.type.toLowerCase().includes(typeFilter)) {
+            matches = false;
+        }
+
+        // Filter by env
+        if (envFilter && entry.env && !entry.env.toLowerCase().includes(envFilter)) {
             matches = false;
         }
 

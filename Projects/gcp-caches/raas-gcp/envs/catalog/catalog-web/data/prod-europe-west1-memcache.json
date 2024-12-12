@@ -2,6 +2,7 @@
     "checkout-itier": {
         "name": "checkout-itier",
         "region": "europe-west1",
+        "env": "prod",
         "service": "checkout-itier",
         "memory_size": 1024,
         "type": "memcached",
@@ -14,6 +15,7 @@
     "content-pages": {
         "name": "content-pages",
         "region": "europe-west1",
+        "env": "prod",
         "service": "content-pages",
         "memory_size": 1024,
         "type": "memcached",
@@ -26,6 +28,7 @@
     "getaways-browse": {
         "name": "getaways-browse",
         "region": "europe-west1",
+        "env": "prod",
         "service": "getaways-browse",
         "memory_size": 1024,
         "type": "memcached",
@@ -38,6 +41,7 @@
     "goods-outbound-controller": {
         "name": "goods-outbound-controller",
         "region": "europe-west1",
+        "env": "prod",
         "service": "goods-outbound-controller",
         "memory_size": 1024,
         "type": "memcached",
@@ -50,6 +54,7 @@
     "layout-service": {
         "name": "layout-service",
         "region": "europe-west1",
+        "env": "prod",
         "service": "layout-service",
         "memory_size": 1024,
         "type": "memcached",
@@ -62,6 +67,7 @@
     "occasions": {
         "name": "occasions",
         "region": "europe-west1",
+        "env": "prod",
         "service": "occasions",
         "memory_size": 1024,
         "type": "memcached",
@@ -74,6 +80,7 @@
     "pull": {
         "name": "pull",
         "region": "europe-west1",
+        "env": "prod",
         "service": "pull",
         "memory_size": 1024,
         "type": "memcached",
@@ -86,6 +93,7 @@
     "sub-center": {
         "name": "sub-center",
         "region": "europe-west1",
+        "env": "prod",
         "service": "sub_center",
         "memory_size": 1024,
         "type": "memcached",
@@ -98,6 +106,7 @@
     "subscription-flow": {
         "name": "subscription-flow",
         "region": "europe-west1",
+        "env": "prod",
         "service": "subscription-flow",
         "memory_size": 1024,
         "type": "memcached",
@@ -110,6 +119,7 @@
     "user-sessions": {
         "name": "user-sessions",
         "region": "europe-west1",
+        "env": "prod",
         "service": "user_sessions",
         "memory_size": 1024,
         "type": "memcached",

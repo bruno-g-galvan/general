@@ -2,6 +2,7 @@
     "accounting-service": {
         "name": "accounting-service",
         "region": "us-central1",
+        "env": "stable",
         "service": "accounting_service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -12,6 +13,7 @@
     "api-proxy": {
         "name": "api-proxy",
         "region": "us-central1",
+        "env": "stable",
         "service": "api-proxy",
         "memory_size": 1,
         "type": "redis_instance",
@@ -22,6 +24,7 @@
     "appointments-resque": {
         "name": "appointments-resque",
         "region": "us-central1",
+        "env": "stable",
         "service": "appointment_engine",
         "memory_size": 1,
         "type": "redis_instance",
@@ -32,6 +35,7 @@
     "arbitration": {
         "name": "arbitration",
         "region": "us-central1",
+        "env": "stable",
         "service": "arbitration-service",
         "shard_count": 3,
         "node_type": "REDIS_SHARED_CORE_NANO",
@@ -44,6 +48,7 @@
     "backbeat": {
         "name": "backbeat",
         "region": "us-central1",
+        "env": "stable",
         "service": "backbeat",
         "memory_size": 1,
         "type": "redis_instance",
@@ -54,6 +59,7 @@
     "badges-service": {
         "name": "badges-service",
         "region": "us-central1",
+        "env": "stable",
         "service": "badges-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -64,6 +70,7 @@
     "bookingtool-cache": {
         "name": "bookingtool-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": "bookingtool",
         "memory_size": 1,
         "type": "redis_instance",
@@ -74,6 +81,7 @@
     "calendar-service-cache": {
         "name": "calendar-service-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": "calendar-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -84,6 +92,7 @@
     "casesservice-cache": {
         "name": "casesservice-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": "mx-merchant-cases",
         "memory_size": 1,
         "type": "redis_instance",
@@ -94,6 +103,7 @@
     "clo-inventory-service": {
         "name": "clo-inventory-service",
         "region": "us-central1",
+        "env": "stable",
         "service": "clo-inventory-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -104,6 +114,7 @@
     "clo-itier": {
         "name": "clo-itier",
         "region": "us-central1",
+        "env": "stable",
         "service": "clo-itier",
         "memory_size": 1,
         "type": "redis_instance",
@@ -114,6 +125,7 @@
     "clo-service": {
         "name": "clo-service",
         "region": "us-central1",
+        "env": "stable",
         "service": "clo-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -124,6 +136,7 @@
     "coupon-worker": {
         "name": "coupon-worker",
         "region": "us-central1",
+        "env": "stable",
         "service": "coupons-revproc",
         "memory_size": 1,
         "type": "redis_instance",
@@ -135,6 +148,7 @@
     "crm-message-service": {
         "name": "crm-message-service",
         "region": "us-central1",
+        "env": "stable",
         "service": "crm-message-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -145,6 +159,7 @@
     "cs-api": {
         "name": "cs-api",
         "region": "us-central1",
+        "env": "stable",
         "service": "cs-api",
         "memory_size": 1,
         "type": "redis_instance",
@@ -155,6 +170,7 @@
     "custsvc": {
         "name": "custsvc",
         "region": "us-central1",
+        "env": "stable",
         "service": "cyclops",
         "memory_size": 1,
         "type": "redis_instance",
@@ -165,6 +181,7 @@
     "custsvc-cache": {
         "name": "custsvc-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": "cyclops",
         "memory_size": 1,
         "type": "redis_instance",
@@ -175,6 +192,7 @@
     "custsvc-tokenizer": {
         "name": "custsvc-tokenizer",
         "region": "us-central1",
+        "env": "stable",
         "service": "cs-token-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -185,6 +203,7 @@
     "deal-book-service": {
         "name": "deal-book-service",
         "region": "us-central1",
+        "env": "stable",
         "service": "deal-book-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -195,6 +214,7 @@
     "deal-estate": {
         "name": "deal-estate",
         "region": "us-central1",
+        "env": "stable",
         "service": "deal-estate",
         "memory_size": 1,
         "type": "redis_instance",
@@ -205,6 +225,7 @@
     "deal-estate-resque": {
         "name": "deal-estate-resque",
         "region": "us-central1",
+        "env": "stable",
         "service": "deal-estate",
         "memory_size": 1,
         "type": "redis_instance",
@@ -215,6 +236,7 @@
     "dealshow": {
         "name": "dealshow",
         "region": "us-central1",
+        "env": "stable",
         "service": "relevance",
         "memory_size": 1,
         "type": "redis_instance",
@@ -225,6 +247,7 @@
     "deckard-async": {
         "name": "deckard-async",
         "region": "us-central1",
+        "env": "stable",
         "service": "deckard",
         "memory_size": 1,
         "type": "redis_instance",
@@ -235,6 +258,7 @@
     "deckard-cache": {
         "name": "deckard-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": "deckard",
         "memory_size": 1,
         "type": "redis_instance",
@@ -245,6 +269,7 @@
     "dlsvc-shield-cache": {
         "name": "dlsvc-shield-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": "deal-catalog",
         "memory_size": 10,
         "type": "redis_instance",
@@ -255,6 +280,7 @@
     "dlsvc-shield-queue": {
         "name": "dlsvc-shield-queue",
         "region": "us-central1",
+        "env": "stable",
         "service": "deal-catalog",
         "memory_size": 1,
         "type": "redis_instance",
@@ -265,6 +291,7 @@
     "dmapi": {
         "name": "dmapi",
         "region": "us-central1",
+        "env": "stable",
         "service": "deal_management_api",
         "memory_size": 1,
         "type": "redis_instance",
@@ -275,6 +302,7 @@
     "editorial-writers": {
         "name": "editorial-writers",
         "region": "us-central1",
+        "env": "stable",
         "service": "gazebo",
         "memory_size": 1,
         "type": "redis_instance",
@@ -285,6 +313,7 @@
     "epods": {
         "name": "epods",
         "region": "us-central1",
+        "env": "stable",
         "service": "epods",
         "memory_size": 1,
         "type": "redis_instance",
@@ -295,6 +324,7 @@
     "fraud": {
         "name": "fraud",
         "region": "us-central1",
+        "env": "stable",
         "service": "orders",
         "memory_size": 1,
         "type": "redis_instance",
@@ -305,6 +335,7 @@
     "fraud-arbiter-cache": {
         "name": "fraud-arbiter-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": "fraud-arbiter",
         "memory_size": 1,
         "type": "redis_instance",
@@ -315,6 +346,7 @@
     "fraud-arbiter-config": {
         "name": "fraud-arbiter-config",
         "region": "us-central1",
+        "env": "stable",
         "service": "fraud-arbiter",
         "memory_size": 1,
         "type": "redis_instance",
@@ -325,6 +357,7 @@
     "fraud-arbiter-queue": {
         "name": "fraud-arbiter-queue",
         "region": "us-central1",
+        "env": "stable",
         "service": "fraud-arbiter",
         "memory_size": 1,
         "type": "redis_instance",
@@ -335,6 +368,7 @@
     "geo-bhuvan-cache": {
         "name": "geo-bhuvan-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": "bhuvan",
         "memory_size": 1,
         "type": "redis_instance",
@@ -345,6 +379,7 @@
     "geo-bhuvan-indexer": {
         "name": "geo-bhuvan-indexer",
         "region": "us-central1",
+        "env": "stable",
         "service": "bhuvan",
         "memory_size": 1,
         "type": "redis_instance",
@@ -355,6 +390,7 @@
     "getaways-inventory": {
         "name": "getaways-inventory",
         "region": "us-central1",
+        "env": "stable",
         "service": "getaways-inventory",
         "memory_size": 1,
         "type": "redis_instance",
@@ -365,6 +401,7 @@
     "getaways-inventory-product": {
         "name": "getaways-inventory-product",
         "region": "us-central1",
+        "env": "stable",
         "service": "getaways-inventory",
         "memory_size": 1,
         "type": "redis_instance",
@@ -375,6 +412,7 @@
     "getaways-search-cache": {
         "name": "getaways-search-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": "travel-search",
         "memory_size": 1,
         "type": "redis_instance",
@@ -385,6 +423,7 @@
     "glive-gia": {
         "name": "glive-gia",
         "region": "us-central1",
+        "env": "stable",
         "service": "grouponlive-inventory-admin",
         "memory_size": 1,
         "type": "redis_instance",
@@ -395,6 +434,7 @@
     "glive-inventory": {
         "name": "glive-inventory",
         "region": "us-central1",
+        "env": "stable",
         "service": "grouponlive-inventory-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -405,6 +445,7 @@
     "goods-inventory-service": {
         "name": "goods-inventory-service",
         "region": "us-central1",
+        "env": "stable",
         "service": "goods-inventory-service",
         "memory_size": 2,
         "type": "redis_instance",
@@ -415,6 +456,7 @@
     "goods-market-pricing": {
         "name": "goods-market-pricing",
         "region": "us-central1",
+        "env": "stable",
         "service": "goods-market-pricing",
         "memory_size": 1,
         "type": "redis_instance",
@@ -425,6 +467,7 @@
     "goodscentral-async": {
         "name": "goodscentral-async",
         "region": "us-central1",
+        "env": "stable",
         "service": "goods_commerce_interface",
         "memory_size": 1,
         "type": "redis_instance",
@@ -436,6 +479,7 @@
     "holmes-deal-rt-goods": {
         "name": "holmes-deal-rt-goods",
         "region": "us-central1",
+        "env": "stable",
         "service": "holmes-feature-pipelines",
         "memory_size": 1,
         "type": "redis_instance",
@@ -446,6 +490,7 @@
     "holmes-deal-rt-loci": {
         "name": "holmes-deal-rt-loci",
         "region": "us-central1",
+        "env": "stable",
         "service": "holmes-feature-pipelines",
         "memory_size": 1,
         "type": "redis_instance",
@@ -456,6 +501,7 @@
     "holmes-deals-rt-core-ranking": {
         "name": "holmes-deals-rt-core-ranking",
         "region": "us-central1",
+        "env": "stable",
         "service": "holmes-feature-pipelines",
         "memory_size": 1,
         "type": "redis_instance",
@@ -466,6 +512,7 @@
     "holmes-deals-rt-dsp": {
         "name": "holmes-deals-rt-dsp",
         "region": "us-central1",
+        "env": "stable",
         "service": "holmes-feature-pipelines",
         "memory_size": 1,
         "type": "redis_instance",
@@ -476,6 +523,7 @@
     "holmes-lovo-rvd": {
         "name": "holmes-lovo-rvd",
         "region": "us-central1",
+        "env": "stable",
         "service": "watson-api",
         "memory_size": 1,
         "type": "redis_instance",
@@ -486,6 +534,7 @@
     "holmes-user-identities": {
         "name": "holmes-user-identities",
         "region": "us-central1",
+        "env": "stable",
         "service": "watson-api",
         "memory_size": 1,
         "type": "redis_instance",
@@ -496,6 +545,7 @@
     "holmes-user-recent-searches": {
         "name": "holmes-user-recent-searches",
         "region": "us-central1",
+        "env": "stable",
         "service": "relevance",
         "memory_size": 1,
         "type": "redis_instance",
@@ -506,6 +556,7 @@
     "holmes-user-rt-marketing": {
         "name": "holmes-user-rt-marketing",
         "region": "us-central1",
+        "env": "stable",
         "service": "holmes-feature-pipelines",
         "memory_size": 1,
         "type": "redis_instance",
@@ -516,6 +567,7 @@
     "holmes-user-rt-search-eng": {
         "name": "holmes-user-rt-search-eng",
         "region": "us-central1",
+        "env": "stable",
         "service": "holmes-feature-pipelines",
         "memory_size": 1,
         "type": "redis_instance",
@@ -526,6 +578,7 @@
     "holmes-user-search-personalize": {
         "name": "holmes-user-search-personalize",
         "region": "us-central1",
+        "env": "stable",
         "service": "relevance",
         "memory_size": 1,
         "type": "redis_instance",
@@ -536,6 +589,7 @@
     "inbox-mgmt-email-stg-users01": {
         "name": "inbox-mgmt-email-stg-users01",
         "region": "us-central1",
+        "env": "stable",
         "service": "inbox_management_platform",
         "memory_size": 5,
         "type": "redis_instance",
@@ -546,6 +600,7 @@
     "inbox-mgmt-mobile-stg-users01": {
         "name": "inbox-mgmt-mobile-stg-users01",
         "region": "us-central1",
+        "env": "stable",
         "service": "inbox_management_platform",
         "memory_size": 1,
         "type": "redis_instance",
@@ -556,6 +611,7 @@
     "incentive-cache": {
         "name": "incentive-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": "incentive-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -566,6 +622,7 @@
     "ingestion-cache": {
         "name": "ingestion-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": "ingestion-jtier",
         "memory_size": 1,
         "type": "redis_instance",
@@ -576,6 +633,7 @@
     "janus00": {
         "name": "janus00",
         "region": "us-central1",
+        "env": "stable",
         "service": "janus",
         "memory_size": 1,
         "type": "redis_instance",
@@ -586,6 +644,7 @@
     "janus01": {
         "name": "janus01",
         "region": "us-central1",
+        "env": "stable",
         "service": "janus",
         "memory_size": 1,
         "type": "redis_instance",
@@ -596,6 +655,7 @@
     "janus02": {
         "name": "janus02",
         "region": "us-central1",
+        "env": "stable",
         "service": "janus",
         "memory_size": 1,
         "type": "redis_instance",
@@ -606,6 +666,7 @@
     "janus03": {
         "name": "janus03",
         "region": "us-central1",
+        "env": "stable",
         "service": "janus",
         "memory_size": 1,
         "type": "redis_instance",
@@ -616,6 +677,7 @@
     "janus04": {
         "name": "janus04",
         "region": "us-central1",
+        "env": "stable",
         "service": "janus",
         "memory_size": 1,
         "type": "redis_instance",
@@ -626,6 +688,7 @@
     "janus05": {
         "name": "janus05",
         "region": "us-central1",
+        "env": "stable",
         "service": "janus",
         "memory_size": 1,
         "type": "redis_instance",
@@ -636,6 +699,7 @@
     "janus06": {
         "name": "janus06",
         "region": "us-central1",
+        "env": "stable",
         "service": "janus",
         "memory_size": 1,
         "type": "redis_instance",
@@ -646,6 +710,7 @@
     "janus07": {
         "name": "janus07",
         "region": "us-central1",
+        "env": "stable",
         "service": "janus",
         "memory_size": 1,
         "type": "redis_instance",
@@ -656,6 +721,7 @@
     "janus08": {
         "name": "janus08",
         "region": "us-central1",
+        "env": "stable",
         "service": "janus",
         "memory_size": 1,
         "type": "redis_instance",
@@ -666,6 +732,7 @@
     "janus09": {
         "name": "janus09",
         "region": "us-central1",
+        "env": "stable",
         "service": "janus",
         "memory_size": 1,
         "type": "redis_instance",
@@ -676,6 +743,7 @@
     "janus10": {
         "name": "janus10",
         "region": "us-central1",
+        "env": "stable",
         "service": "janus",
         "memory_size": 1,
         "type": "redis_instance",
@@ -686,6 +754,7 @@
     "janus11": {
         "name": "janus11",
         "region": "us-central1",
+        "env": "stable",
         "service": "janus",
         "memory_size": 1,
         "type": "redis_instance",
@@ -696,6 +765,7 @@
     "janus12": {
         "name": "janus12",
         "region": "us-central1",
+        "env": "stable",
         "service": "janus",
         "memory_size": 1,
         "type": "redis_instance",
@@ -706,6 +776,7 @@
     "janus13": {
         "name": "janus13",
         "region": "us-central1",
+        "env": "stable",
         "service": "janus",
         "memory_size": 1,
         "type": "redis_instance",
@@ -716,6 +787,7 @@
     "janus14": {
         "name": "janus14",
         "region": "us-central1",
+        "env": "stable",
         "service": "janus",
         "memory_size": 1,
         "type": "redis_instance",
@@ -726,6 +798,7 @@
     "janus15": {
         "name": "janus15",
         "region": "us-central1",
+        "env": "stable",
         "service": "janus",
         "memory_size": 1,
         "type": "redis_instance",
@@ -736,6 +809,7 @@
     "jarvis-bot": {
         "name": "jarvis-bot",
         "region": "us-central1",
+        "env": "stable",
         "service": "jarvis-bot",
         "memory_size": 1,
         "type": "redis_instance",
@@ -746,6 +820,7 @@
     "layout-svc-templates": {
         "name": "layout-svc-templates",
         "region": "us-central1",
+        "env": "stable",
         "service": "layout-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -756,6 +831,7 @@
     "lazlo-deals": {
         "name": "lazlo-deals",
         "region": "us-central1",
+        "env": "stable",
         "service": "api-lazlo",
         "memory_size": 1,
         "type": "redis_instance",
@@ -766,6 +842,7 @@
     "m3-merchant-service-cache": {
         "name": "m3-merchant-service-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": "m3_merchant_service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -776,6 +853,7 @@
     "m3-placeread": {
         "name": "m3-placeread",
         "region": "us-central1",
+        "env": "stable",
         "service": "m3_placeread",
         "memory_size": 1,
         "type": "redis_instance",
@@ -786,6 +864,7 @@
     "mds": {
         "name": "mds",
         "region": "us-central1",
+        "env": "stable",
         "service": "marketing-deal-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -796,6 +875,7 @@
     "merchant-advisor": {
         "name": "merchant-advisor",
         "region": "us-central1",
+        "env": "stable",
         "service": "merchant-advisor-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -806,6 +886,7 @@
     "metro": {
         "name": "metro",
         "region": "us-central1",
+        "env": "stable",
         "service": "draft-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -816,6 +897,7 @@
     "minos-cache": {
         "name": "minos-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": "minos",
         "memory_size": 1,
         "type": "redis_instance",
@@ -826,6 +908,7 @@
     "mobile-next": {
         "name": "mobile-next",
         "region": "us-central1",
+        "env": "stable",
         "service": "next-pwa-app",
         "memory_size": 1,
         "type": "redis_instance",
@@ -836,6 +919,7 @@
     "mppservice-cache": {
         "name": "mppservice-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": null,
         "memory_size": 1,
         "type": "mpp-service",
@@ -846,6 +930,7 @@
     "next-pwa": {
         "name": "next-pwa",
         "region": "us-central1",
+        "env": "stable",
         "service": "next-pwa-app",
         "shard_count": 9,
         "node_type": "REDIS_SHARED_CORE_NANO",
@@ -859,6 +944,7 @@
     "orders-conveyor": {
         "name": "orders-conveyor",
         "region": "us-central1",
+        "env": "stable",
         "service": "orders",
         "memory_size": 1,
         "type": "redis_instance",
@@ -869,6 +955,7 @@
     "orders-dashboard": {
         "name": "orders-dashboard",
         "region": "us-central1",
+        "env": "stable",
         "service": "orders-dashboard",
         "memory_size": 1,
         "type": "redis_instance",
@@ -879,6 +966,7 @@
     "oxygen": {
         "name": "oxygen",
         "region": "us-central1",
+        "env": "stable",
         "service": "jtier-oxygen",
         "memory_size": 1,
         "type": "redis_instance",
@@ -889,6 +977,7 @@
     "pricing": {
         "name": "pricing",
         "region": "us-central1",
+        "env": "stable",
         "service": "pricing_service",
         "memory_size": 2,
         "type": "redis_instance",
@@ -899,6 +988,7 @@
     "prodcat": {
         "name": "prodcat",
         "region": "us-central1",
+        "env": "stable",
         "service": "prodcat",
         "memory_size": 1,
         "type": "redis_instance",
@@ -910,6 +1000,7 @@
     "quantum-lead": {
         "name": "quantum-lead",
         "region": "us-central1",
+        "env": "stable",
         "service": "salesforce-cache",
         "memory_size": 1,
         "type": "redis_instance",
@@ -920,6 +1011,7 @@
     "rapi-citrus-ads": {
         "name": "rapi-citrus-ads",
         "region": "us-central1",
+        "env": "stable",
         "service": "relevance",
         "memory_size": 1,
         "type": "redis_instance",
@@ -930,6 +1022,7 @@
     "rapi-pagination": {
         "name": "rapi-pagination",
         "region": "us-central1",
+        "env": "stable",
         "service": "relevance",
         "memory_size": 1,
         "type": "redis_instance",
@@ -941,6 +1034,7 @@
     "relevance-sponsored-deals": {
         "name": "relevance-sponsored-deals",
         "region": "us-central1",
+        "env": "stable",
         "service": "relevance",
         "memory_size": 1,
         "type": "redis_instance",
@@ -951,6 +1045,7 @@
     "rfs-cache": {
         "name": "rfs-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": "regulatory-consent-log",
         "memory_size": 1,
         "type": "redis_instance",
@@ -961,6 +1056,7 @@
     "rise": {
         "name": "rise",
         "region": "us-central1",
+        "env": "stable",
         "service": "rise",
         "memory_size": 1,
         "type": "redis_instance",
@@ -971,6 +1067,7 @@
     "rm-cache": {
         "name": "rm-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": "rocketman_v2",
         "shard_count": 3,
         "node_type": "REDIS_SHARED_CORE_NANO",
@@ -983,6 +1080,7 @@
     "sportal-cache": {
         "name": "sportal-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": "service-portal",
         "memory_size": 1,
         "type": "redis_instance",
@@ -993,6 +1091,7 @@
     "sportal-cache-dev": {
         "name": "sportal-cache-dev",
         "region": "us-central1",
+        "env": "stable",
         "service": "service-portal",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1003,6 +1102,7 @@
     "sportal-workers-sidekiq": {
         "name": "sportal-workers-sidekiq",
         "region": "us-central1",
+        "env": "stable",
         "service": "service-portal",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1013,6 +1113,7 @@
     "sportal-workers-sidekiq-dev": {
         "name": "sportal-workers-sidekiq-dev",
         "region": "us-central1",
+        "env": "stable",
         "service": "service-portal",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1023,6 +1124,7 @@
     "supply-chain-gateway": {
         "name": "supply-chain-gateway",
         "region": "us-central1",
+        "env": "stable",
         "service": "supply_chain_gateway",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1033,6 +1135,7 @@
     "targeted-deal-message-cache": {
         "name": "targeted-deal-message-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": "targeted-deal-message",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1043,6 +1146,7 @@
     "taxonomyv2": {
         "name": "taxonomyv2",
         "region": "us-central1",
+        "env": "stable",
         "service": "taxonomyv2",
         "memory_size": 4,
         "type": "redis_instance",
@@ -1053,6 +1157,7 @@
     "ticketsvc": {
         "name": "ticketsvc",
         "region": "us-central1",
+        "env": "stable",
         "service": "ticketing_service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1063,6 +1168,7 @@
     "tpis-third-party-inventory-service": {
         "name": "tpis-third-party-inventory-service",
         "region": "us-central1",
+        "env": "stable",
         "service": "tpis-third-party-inventory-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1073,6 +1179,7 @@
     "transporter": {
         "name": "transporter",
         "region": "us-central1",
+        "env": "stable",
         "service": "transporter",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1083,6 +1190,7 @@
     "ttd-gia-resque": {
         "name": "ttd-gia-resque",
         "region": "us-central1",
+        "env": "stable",
         "service": "grouponlive-inventory-admin",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1093,6 +1201,7 @@
     "ttd-gis-cache": {
         "name": "ttd-gis-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": "grouponlive-inventory-service",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1103,6 +1212,7 @@
     "ugc": {
         "name": "ugc",
         "region": "us-central1",
+        "env": "stable",
         "service": "ugc-api-jtier",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1113,6 +1223,7 @@
     "ugc-cache": {
         "name": "ugc-cache",
         "region": "us-central1",
+        "env": "stable",
         "service": "ugc-api-jtier",
         "memory_size": 2,
         "type": "redis_instance",
@@ -1123,6 +1234,7 @@
     "users-service": {
         "name": "users-service",
         "region": "us-central1",
+        "env": "stable",
         "service": "users-service",
         "memory_size": 4,
         "type": "redis_instance",
@@ -1133,6 +1245,7 @@
     "voucher-inventory": {
         "name": "voucher-inventory",
         "region": "us-central1",
+        "env": "stable",
         "service": "voucher-inventory",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1143,6 +1256,7 @@
     "voucher-inventory-jtier": {
         "name": "voucher-inventory-jtier",
         "region": "us-central1",
+        "env": "stable",
         "service": "voucher-inventory-jtier",
         "shard_count": 3,
         "node_type": "REDIS_SHARED_CORE_NANO",
@@ -1155,6 +1269,7 @@
     "watson-deal-kv": {
         "name": "watson-deal-kv",
         "region": "us-central1",
+        "env": "stable",
         "service": "watson-api",
         "shard_count": 3,
         "node_type": "REDIS_SHARED_CORE_NANO",
@@ -1167,6 +1282,7 @@
     "watson-freshness": {
         "name": "watson-freshness",
         "region": "us-central1",
+        "env": "stable",
         "service": "watson-api",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1177,6 +1293,7 @@
     "watson-search-kv": {
         "name": "watson-search-kv",
         "region": "us-central1",
+        "env": "stable",
         "service": "watson-api",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1187,6 +1304,7 @@
     "watson-user-kv": {
         "name": "watson-user-kv",
         "region": "us-central1",
+        "env": "stable",
         "service": "watson-api",
         "memory_size": 1,
         "type": "redis_instance",
@@ -1197,6 +1315,7 @@
     "wishlist": {
         "name": "wishlist",
         "region": "us-central1",
+        "env": "stable",
         "service": "wishlist-service",
         "memory_size": 1,
         "type": "redis_instance",

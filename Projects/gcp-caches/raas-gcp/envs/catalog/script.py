@@ -47,12 +47,12 @@ def join_dicts(inputs, cnames, prices):
         if key in cnames_clean.keys():
             new_dict[key]["name"] = key
             new_dict[key]["region"] = cnames_clean[key]["cache_cname"].split('.')[1] if cnames_clean[key].get("cache_cname") else None
+            new_dict[key]["env"] = cnames_clean[key]["cache_cname"].split('.')[3] if cnames_clean[key].get("cache_cname") else None
             new_dict[key]["service"] = inputs_clean[key]["labels"].get("tenantservice", None)
 
             if "memory_size" in inputs_clean[key] and inputs_clean[key]["memory_size"]:
                 new_dict[key]["memory_size"] = inputs_clean[key]["memory_size"]
                 new_dict[key]["type"] = inputs_clean[key]["labels"].get("service", None).replace('raas_', '')
-                new_dict[key]["price_per_hr"] = 
 
             if "shard_count" in inputs_clean[key] and inputs_clean[key]["shard_count"]:
                 new_dict[key]["shard_count"] = inputs_clean[key]["shard_count"]
