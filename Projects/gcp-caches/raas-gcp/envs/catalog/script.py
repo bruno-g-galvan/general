@@ -60,9 +60,10 @@ def join_dicts(inputs, cnames, prices):
                 new_dict[key]["replica_count"] = inputs_clean[key].get("replica_count", None)
                 new_dict[key]["type"] = inputs_clean[key]["labels"].get("service", None).replace('raas_', '')
 
-            if "node_count" in inputs_clean[key] and inputs_clean[key]["node_count"]:
-                new_dict[key]["node_count"] = inputs_clean[key]["node_count"]
+            if "cpu_count" in inputs_clean[key] and inputs_clean[key]["cpu_count"]: 
+                new_dict[key]["memory_size"] = int(inputs_clean[key]["memory_size"] / 1024)
                 new_dict[key]["cpu_count"] = inputs_clean[key].get("cpu_count", None)
+                new_dict[key]["node_count"] = inputs_clean[key]["node_count"]
                 new_dict[key]["type"] = inputs_clean[key]["labels"].get("service", None).replace('raas_', '')
 
             new_dict[key]["cache_cname"] = cnames_clean[key]["cache_cname"]

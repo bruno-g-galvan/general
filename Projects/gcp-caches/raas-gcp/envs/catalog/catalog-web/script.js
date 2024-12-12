@@ -139,13 +139,12 @@ Promise.all([
 
 
 // Function to calculate the Tier according to memory size
-function getTier(memory_size) {
+function getNodeType(memory_size) {
     if (memory_size >= 1 && memory_size <= 4) return 'M1';
     if (memory_size >= 5 && memory_size <= 10) return 'M2';
     if (memory_size >= 11 && memory_size <= 35) return 'M3';
     if (memory_size >= 36 && memory_size <= 100) return 'M4';
     if (memory_size > 100 && memory_size < 1000) return 'M5';
-    return 'N/A';
 }
 
 // Function to calculate the capacity based on node type and shard count
@@ -193,9 +192,9 @@ function generateTable(data, priceData) {
         const type = entry.type || ''; 
         const region = entry.region || ''; 
         const shardCount = entry.shard_count || 0;
-        const tier = getTier(memorySize);
+        const node_type_redis_instance = getNodeType(memorySize);
         const capacity = getCapNodeType(nodeType, shardCount);
-        const price = getPricing(priceData, region, type, nodeType, tier, memorySize, shardCount, nodeCount);
+        const price = getPricing(priceData, region, type, nodeType, node_type_redis_instance, memorySize, shardCount, nodeCount);
 
         rowsHTML += `
             <tr>
@@ -205,7 +204,7 @@ function generateTable(data, priceData) {
                 <td>
                     ${entry.service ? `<a href="https://services.groupondev.com/services/${entry.service}" target="_blank">${entry.service}</a>` : 'N/A'}
                 </td>
-                <td>${nodeType || tier}</td>
+                <td>${nodeType || node_type_redis_instance || '-'}</td>
                 <td>${shardCount || nodeCount || 'N/A'}</td>
                 <td>${memorySize || capacity || 'N/A'}</td>
                 <td>${entry.cache_cname || 'N/A'}</td>
