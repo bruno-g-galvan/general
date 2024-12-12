@@ -2,6 +2,7 @@ import os
 import hcl2
 import json
 import argparse
+from itertools import product
 
 def extract_inputs_from_hcl_files(base_folder):
     inputs_data = {}
@@ -23,37 +24,27 @@ def extract_inputs_from_hcl_files(base_folder):
     return inputs_data
 
 def join_dicts(inputs, cnames):
-    # Create a copy of the inputs to avoid modifying the original
     new_dict = {}
     inputs_clean = {key.replace('-cluster', '').replace('-memorystore', '').replace('-memcache', '').replace('-cloud', ''): value for key, value in inputs.items()}
     cnames_clean = {key.replace('-cluster', '').replace('-memorystore', '').replace('-memcache', '').replace('-cloud', ''): value for key, value in cnames.items()}
 
-    # Iterate over the keys in inputs
     for key in inputs_clean:
-        #ckey = key.replace('-cluster', '')
         new_dict[key] = {}
-        # Check if the key exists in cnames
-        
         if key in cnames_clean.keys():
-            #ckey = ckey + '-memcache' + '-memorystore'
-            # Add cache_cname and cnames to the corresponding entry in new_dict
             new_dict[key]["name"] = key
             new_dict[key]["region"] = cnames_clean[key]["cache_cname"].split('.')[1] if cnames_clean[key].get("cache_cname") else None
             new_dict[key]["service"] = inputs_clean[key]["labels"].get("tenantservice", None)
 
-            #Redis Instance
             if "memory_size" in inputs_clean[key] and inputs_clean[key]["memory_size"]:
                 new_dict[key]["memory_size"] = inputs_clean[key]["memory_size"]
                 new_dict[key]["type"] = inputs_clean[key]["labels"].get("service", None).replace('raas_', '')
 
-            #Redis Cluster
             if "shard_count" in inputs_clean[key] and inputs_clean[key]["shard_count"]:
                 new_dict[key]["shard_count"] = inputs_clean[key]["shard_count"]
                 new_dict[key]["node_type"] = inputs_clean[key].get("node_type", None)
                 new_dict[key]["replica_count"] = inputs_clean[key].get("replica_count", None)
                 new_dict[key]["type"] = inputs_clean[key]["labels"].get("service", None).replace('raas_', '')
-            
-            #Memcache
+
             if "node_count" in inputs_clean[key] and inputs_clean[key]["node_count"]:
                 new_dict[key]["node_count"] = inputs_clean[key]["node_count"]
                 new_dict[key]["cpu_count"] = inputs_clean[key].get("cpu_count", None)
@@ -65,32 +56,7 @@ def join_dicts(inputs, cnames):
 
     return new_dict
 
-def enrich_cache_data(input_data):
-    # Create a new dictionary to store the transformed data
-    transformed_data = {}
-
-    # Loop through each cache entry in the input data
-    for key, value in input_data.items():
-        # Create a new dictionary for the transformed entry
-        transformed_entry = {
-            "cluster": value["cache_name"],  # Assign the cache name to the "cluster" key
-            "memory_size": value["memory_size"],
-            "node_count": value["node_count"],
-            "cpu_count": value["cpu_count"]
-        }
-
-        # Extract the labels and add them to the transformed entry
-        labels = value.get("labels", {})
-        transformed_entry.update(labels)
-
-        # Assign the transformed entry to the result dictionary
-        transformed_data[key] = transformed_entry
-
-    return transformed_data
-
-
 def save_to_json(data, output_file):
-    # Ensure the directory exists
     directory = os.path.dirname(output_file)
     if not os.path.exists(directory):
         os.makedirs(directory) 
@@ -99,33 +65,35 @@ def save_to_json(data, output_file):
         json.dump(data, f, indent=4)
     print(f"Data successfully written to {output_file}")
 
+def process_combination(env, region, engine):
+    base_folder_inputs = f"../{env}/{region}"
+    base_folder_inputs = os.path.join(base_folder_inputs, "memcache" if engine == "memcache" else "services")
+    base_folder_cnames = f"../{env}/{region}/cnames"
+    output_file_inputs = f"../catalog/catalog-web/data/{env}-{region}-{engine}.json"
+
+    inputs_dict = extract_inputs_from_hcl_files(base_folder_inputs)
+    cnames_dict = extract_inputs_from_hcl_files(base_folder_cnames)
+    result = join_dicts(inputs_dict, cnames_dict)
+    save_to_json(result, output_file_inputs)
+
 def main():
     parser = argparse.ArgumentParser(description="Extract inputs from HCL files and save to JSON.")
-    parser.add_argument("env", choices=["prod", "stable"], help="Environment (prod or stable)")
-    parser.add_argument("region", choices=["europe-west1", "us-central1"], help="Region (europe-west1 or us-central1)")
-    parser.add_argument("engine", choices=["memcache", "redis"], help="Engine type (memcache or redis)")
+    parser.add_argument("env", nargs='?', choices=["prod", "stable"], help="Environment (prod or stable)")
+    parser.add_argument("region", nargs='?', choices=["europe-west1", "us-central1"], help="Region (europe-west1 or us-central1)")
+    parser.add_argument("engine", nargs='?', choices=["memcache", "redis"], help="Engine type (memcache or redis)")
 
     args = parser.parse_args()
 
-    # Construir rutas dinámicas basadas en los argumentos
-    base_folder_inputs = f"Projects/gcp-caches/raas-gcp/envs/{args.env}/{args.region}"
-    if args.engine == "memcache":
-        base_folder_inputs = os.path.join(base_folder_inputs, "memcache")
+    if args.env and args.region and args.engine:
+        process_combination(args.env, args.region, args.engine)
     else:
-        base_folder_inputs = os.path.join(base_folder_inputs, "services")
+        environments = ["prod", "stable"]
+        regions = ["europe-west1", "us-central1"]
+        engines = ["memcache", "redis"]
 
-    base_folder_cnames = f"Projects/gcp-caches/raas-gcp/envs/{args.env}/{args.region}/cnames"
-
-    # Nombre del archivo de salida dinámico
-    output_file_inputs = f"Projects/gcp-caches/raas-gcp/envs/catalog/{args.env}/{args.region}/{args.engine}.json"
-
-    # Extraer inputs y guardar a JSON
-    inputs_dict = extract_inputs_from_hcl_files(base_folder_inputs)
-    cnames_dict = extract_inputs_from_hcl_files(base_folder_cnames)
-
-    # Join the dictionaries
-    result = join_dicts(inputs_dict, cnames_dict)
-    save_to_json(result, output_file_inputs)
+        for env, region, engine in product(environments, regions, engines):
+            print(f"Processing: env={env}, region={region}, engine={engine}")
+            process_combination(env, region, engine)
 
 if __name__ == "__main__":
     main()
