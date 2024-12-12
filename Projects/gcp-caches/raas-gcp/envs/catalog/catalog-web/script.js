@@ -1,3 +1,67 @@
+let allData = [];
+let priceData = {};
+
+// Add event listeners for filters
+document.getElementById('region-filter').addEventListener('change', function() {
+    filterTable(); // Call filterTable on change without passing arguments
+});
+document.getElementById('type-filter').addEventListener('change', function() {
+    filterTable(); // Call filterTable on change without passing arguments
+});
+
+// Function to filter and generate the table based on the selected filters
+function filterTable() {
+    const regionFilter = document.getElementById('region-filter').value.toLowerCase();
+    const typeFilter = document.getElementById('type-filter').value.toLowerCase();
+
+    const filteredData = allData.filter(entry => {
+        let matches = true;
+
+        if (regionFilter && entry.region && !entry.region.toLowerCase().includes(regionFilter)) {
+            matches = false;
+        }
+
+        if (typeFilter && entry.type && !entry.type.toLowerCase().includes(typeFilter)) {
+            matches = false;
+        }
+
+        return matches;
+    });
+
+    generateTable(filteredData, priceData);  // Re-generate table with filtered data
+}
+
+// Fetch all data
+async function fetchData() {
+    try {
+        const dataArrays = await Promise.all(
+            jsonFiles.map(file =>
+                fetch(file).then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error loading file ${file}: ${response.statusText}`);
+                    }
+                    return response.json(); // Parse the JSON data
+                })
+            )
+        );
+
+        const fetchedPriceData = await fetch(priceFile)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Error loading price file ${priceFile}: ${response.statusText}`);
+                }
+                return response.json(); // Parse the price JSON data
+            });
+
+        allData = dataArrays.flatMap(data => Object.values(data)); // Flatten all the data files
+        priceData = fetchedPriceData;
+
+        generateTable(allData, priceData); // Initial table generation
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+
 // List of all JSON file paths relative to script.js (excluding the new JSON with prices)
 const jsonFiles = [
     'data/prod-europe-west1-memcache.json',
@@ -13,7 +77,6 @@ const jsonFiles = [
 // Path to the new JSON file with prices
 const priceFile = 'prices.json';
 
-// Fetch the main JSON files and the price JSON file separately
 Promise.all([
     // Fetch the other JSON files (without prices)
     Promise.all(
@@ -43,16 +106,19 @@ Promise.all([
             console.error('Error loading price file:', error);
             return {}; // Return an empty object on error
         })
-]).then(([dataArrays, priceData]) => {
+]).then(([dataArrays, fetchedPriceData]) => {
     // Flatten the object data into an array of entries (for the main JSON files)
-    const allData = dataArrays.flatMap(data => {
+    allData = dataArrays.flatMap(data => {
         return Object.values(data); // Flatten each file's object into an array of service entries
     });
 
-    // Generate the table with the main data
-    generateTable(allData, priceData);
+    // Store the price data
+    priceData = fetchedPriceData;
 
+    // Generate the table with the main data
+    generateTable(allData, priceData);  // Ensure the table is generated initially
 }).catch(error => console.error('Error fetching data:', error));
+
 
 // Function to calculate the Tier according to memory size
 function getTier(memory_size) {
@@ -70,6 +136,30 @@ function getCapNodeType(node_type, shard_count) {
     if (node_type === 'REDIS_STANDARD_SMALL') return (shard_count * 5.2).toFixed(2);
     if (node_type === 'REDIS_HIGHMEM_MEDIUM') return (shard_count * 10.4).toFixed(2);
     if (node_type === 'REDIS_HIGHMEM_XLARGE') return (shard_count * 46.4).toFixed(2);
+    return 'N/A';
+}
+
+function getPricing(priceData, region, type, nodeType, tier, memorySize, shardCount, nodeCount) {
+    // Check if the price exists for the given region, type, and tier (Redis Instances)
+    if (priceData[region] && priceData[region][type] && priceData[region][type][tier]) {
+        return (priceData[region][type][tier] * memorySize * 730).toFixed(2);
+    }
+
+    // Check for Redis Clusters (by nodeType)
+    if (priceData[region] && priceData[region][type] && priceData[region][type][nodeType]) {
+        return (priceData[region][type][nodeType] * shardCount * 730).toFixed(2);
+    }
+
+    // Check for Memcache pricing based on memorySize
+    if (priceData[region] && priceData[region][type]) {
+        if ((memorySize / 1024) <= 4) {
+            return (priceData[region][type]['node<=4'] * (memorySize / 1024) * nodeCount * 730).toFixed(2) || 'N/A';  // Fallback if the 'node<=4' pricing doesn't exist priceData[region][type]['node<=4']
+        } else {
+            return (priceData[region][type]['node>4'] * (memorySize / 1024) * nodeCount * 730).toFixed(2) || 'N/A';  // Fallback if the 'node>4' pricing doesn't exist
+        }
+    }
+
+    // Fallback if no valid pricing is found
     return 'N/A';
 }
 
@@ -115,28 +205,5 @@ function generateTable(data, priceData) {
     tableBody.innerHTML = rowsHTML;
 }
 
-function getPricing(priceData, region, type, nodeType, tier, memorySize, shardCount, nodeCount) {
-    // Check if the price exists for the given region, type, and tier (Redis Instances)
-    if (priceData[region] && priceData[region][type] && priceData[region][type][tier]) {
-        return (priceData[region][type][tier] * memorySize * 730).toFixed(2);
-    }
-
-    // Check for Redis Clusters (by nodeType)
-    if (priceData[region] && priceData[region][type] && priceData[region][type][nodeType]) {
-        return (priceData[region][type][nodeType] * shardCount * 730).toFixed(2);
-    }
-
-    // Check for Memcache pricing based on memorySize
-    if (priceData[region] && priceData[region][type]) {
-        if ((memorySize / 1024) <= 4) {
-            return (priceData[region][type]['node<=4'] * (memorySize / 1024) * nodeCount * 730).toFixed(2) || 'N/A';  // Fallback if the 'node<=4' pricing doesn't exist priceData[region][type]['node<=4']
-        } else {
-            return (priceData[region][type]['node>4'] * (memorySize / 1024) * nodeCount * 730).toFixed(2) || 'N/A';  // Fallback if the 'node>4' pricing doesn't exist
-        }
-    }
-
-    // Fallback if no valid pricing is found
-    return 'N/A';
-}
-
-
+// Fetch and load data
+fetchData();
