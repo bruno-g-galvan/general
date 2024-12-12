@@ -1,4 +1,4 @@
-// List of all JSON file paths relative to script.js
+// List of all JSON file paths relative to script.js (excluding the new JSON with prices)
 const jsonFiles = [
     'data/prod-europe-west1-memcache.json',
     'data/prod-europe-west1-redis.json',
@@ -10,29 +10,48 @@ const jsonFiles = [
     'data/stable-us-central1-redis.json'
 ];
 
-// Fetch all JSON files and process them
-Promise.all(
-    jsonFiles.map(file => 
-        fetch(file)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Error loading file ${file}: ${response.statusText}`);
-                }
-                return response.json(); // Parse the JSON data
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                return {}; // Return an empty object on error to avoid breaking the loop
-            })
-    )
-).then(dataArrays => {
-    // Flatten the object data into an array of entries
+// Path to the new JSON file with prices
+const priceFile = 'prices.json';
+
+// Fetch the main JSON files and the price JSON file separately
+Promise.all([
+    // Fetch the other JSON files (without prices)
+    Promise.all(
+        jsonFiles.map(file => 
+            fetch(file)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error loading file ${file}: ${response.statusText}`);
+                    }
+                    return response.json(); // Parse the JSON data
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    return {}; // Return an empty object on error to avoid breaking the loop
+                })
+        )
+    ),
+    // Fetch the price JSON file separately
+    fetch(priceFile)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error loading price file ${priceFile}: ${response.statusText}`);
+            }
+            return response.json(); // Parse the price JSON data
+        })
+        .catch(error => {
+            console.error('Error loading price file:', error);
+            return {}; // Return an empty object on error
+        })
+]).then(([dataArrays, priceData]) => {
+    // Flatten the object data into an array of entries (for the main JSON files)
     const allData = dataArrays.flatMap(data => {
         return Object.values(data); // Flatten each file's object into an array of service entries
     });
 
-    // Generate the table with the flattened data
-    generateTable(allData);
+    // Generate the table with the main data
+    generateTable(allData, priceData);
+
 }).catch(error => console.error('Error fetching data:', error));
 
 // Function to calculate the Tier according to memory size
@@ -55,16 +74,20 @@ function getCapNodeType(node_type, shard_count) {
 }
 
 // Function to generate the table
-function generateTable(data) {
+function generateTable(data, priceData) {
     const tableBody = document.getElementById('table-body');
     let rowsHTML = '';
 
     for (const entry of data) {
         const memorySize = entry.memory_size || 0;
         const nodeType = entry.node_type || '';
+        const nodeCount = entry.node_count || ''; 
+        const type = entry.type || ''; 
+        const region = entry.region || ''; 
         const shardCount = entry.shard_count || 0;
         const tier = getTier(memorySize);
         const capacity = getCapNodeType(nodeType, shardCount);
+        const price = getPricing(priceData, region, type, nodeType, tier, memorySize, shardCount, nodeCount);
 
         rowsHTML += `
             <tr>
@@ -75,11 +98,15 @@ function generateTable(data) {
                     ${entry.service ? `<a href="https://services.groupondev.com/services/${entry.service}" target="_blank">${entry.service}</a>` : 'N/A'}
                 </td>
                 <td>${nodeType || tier}</td>
-                <td>${shardCount || 'N/A'}</td>
+                <td>${shardCount || nodeCount || 'N/A'}</td>
                 <td>${memorySize || capacity || 'N/A'}</td>
                 <td>${entry.cache_cname || 'N/A'}</td>
                 <td>
                     ${entry.jira_ticket ? `<a href="https://jira.groupondev.com/browse/${entry.jira_ticket}" target="_blank">${entry.jira_ticket}</a>` : 'N/A'}
+                </td>
+                <td>${price || 'N/A'}</td>
+                <td>
+                    ${entry.service ? `<a href="https://grafana.com/" target="_blank"><i class="fas fa-chart-line"></i></a>` : 'N/A'}
                 </td>
             </tr>
         `;
@@ -87,3 +114,29 @@ function generateTable(data) {
 
     tableBody.innerHTML = rowsHTML;
 }
+
+function getPricing(priceData, region, type, nodeType, tier, memorySize, shardCount, nodeCount) {
+    // Check if the price exists for the given region, type, and tier (Redis Instances)
+    if (priceData[region] && priceData[region][type] && priceData[region][type][tier]) {
+        return (priceData[region][type][tier] * memorySize * 730).toFixed(2);
+    }
+
+    // Check for Redis Clusters (by nodeType)
+    if (priceData[region] && priceData[region][type] && priceData[region][type][nodeType]) {
+        return (priceData[region][type][nodeType] * shardCount * 730).toFixed(2);
+    }
+
+    // Check for Memcache pricing based on memorySize
+    if (priceData[region] && priceData[region][type]) {
+        if ((memorySize / 1024) <= 4) {
+            return (priceData[region][type]['node<=4'] * (memorySize / 1024) * nodeCount * 730).toFixed(2) || 'N/A';  // Fallback if the 'node<=4' pricing doesn't exist priceData[region][type]['node<=4']
+        } else {
+            return (priceData[region][type]['node>4'] * (memorySize / 1024) * nodeCount * 730).toFixed(2) || 'N/A';  // Fallback if the 'node>4' pricing doesn't exist
+        }
+    }
+
+    // Fallback if no valid pricing is found
+    return 'N/A';
+}
+
+

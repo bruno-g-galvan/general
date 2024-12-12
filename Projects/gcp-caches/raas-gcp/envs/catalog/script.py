@@ -23,7 +23,21 @@ def extract_inputs_from_hcl_files(base_folder):
 
     return inputs_data
 
-def join_dicts(inputs, cnames):
+import json
+
+def load_json_file(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+        return data
+    except FileNotFoundError:
+        print(f"Error: The file at {file_path} does not exist.")
+    except json.JSONDecodeError:
+        print(f"Error: The file at {file_path} is not a valid JSON file.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+def join_dicts(inputs, cnames, prices):
     new_dict = {}
     inputs_clean = {key.replace('-cluster', '').replace('-memorystore', '').replace('-memcache', '').replace('-cloud', ''): value for key, value in inputs.items()}
     cnames_clean = {key.replace('-cluster', '').replace('-memorystore', '').replace('-memcache', '').replace('-cloud', ''): value for key, value in cnames.items()}
@@ -38,6 +52,7 @@ def join_dicts(inputs, cnames):
             if "memory_size" in inputs_clean[key] and inputs_clean[key]["memory_size"]:
                 new_dict[key]["memory_size"] = inputs_clean[key]["memory_size"]
                 new_dict[key]["type"] = inputs_clean[key]["labels"].get("service", None).replace('raas_', '')
+                new_dict[key]["price_per_hr"] = 
 
             if "shard_count" in inputs_clean[key] and inputs_clean[key]["shard_count"]:
                 new_dict[key]["shard_count"] = inputs_clean[key]["shard_count"]
@@ -70,10 +85,12 @@ def process_combination(env, region, engine):
     base_folder_inputs = os.path.join(base_folder_inputs, "memcache" if engine == "memcache" else "services")
     base_folder_cnames = f"../{env}/{region}/cnames"
     output_file_inputs = f"../catalog/catalog-web/data/{env}-{region}-{engine}.json"
+    json_path_file = 'catalog-web/prices.json'
 
     inputs_dict = extract_inputs_from_hcl_files(base_folder_inputs)
     cnames_dict = extract_inputs_from_hcl_files(base_folder_cnames)
-    result = join_dicts(inputs_dict, cnames_dict)
+    price_dict = load_json_file(json_path_file)
+    result = join_dicts(inputs_dict, cnames_dict, price_dict)
     save_to_json(result, output_file_inputs)
 
 def main():

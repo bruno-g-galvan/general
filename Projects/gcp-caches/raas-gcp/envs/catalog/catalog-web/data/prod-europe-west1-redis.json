@@ -7,7 +7,8 @@
         "type": "redis_instance",
         "cache_cname": "api-proxy-memorystore.europe-west1.caches.prod.gcp.groupondev.com.",
         "cnames": "api-proxy.europe-west1.caches.prod.gcp.groupondev.com.",
-        "jira_ticket": "raas-1110"
+        "jira_ticket": "raas-1110",
+        "link": ""
     },
     "appointments-resque": {
         "name": "appointments-resque",
