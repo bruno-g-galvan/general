@@ -23,6 +23,11 @@ function filterTable() {
     const filteredData = allData.filter(entry => {
         let matches = true;
 
+        // Filter out entries where name is 'N/A'
+        if (entry.name === 'N/A') {
+            matches = false;
+        }
+
         // Filter by region
         if (regionFilter && entry.region && !entry.region.toLowerCase().includes(regionFilter)) {
             matches = false;

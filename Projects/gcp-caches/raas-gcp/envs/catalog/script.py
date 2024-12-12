@@ -91,7 +91,8 @@ def process_combination(env, region, engine):
     cnames_dict = extract_inputs_from_hcl_files(base_folder_cnames)
     price_dict = load_json_file(json_path_file)
     result = join_dicts(inputs_dict, cnames_dict, price_dict)
-    save_to_json(result, output_file_inputs)
+    result_clean = {key: value for key, value in result.items() if value}
+    save_to_json(result_clean, output_file_inputs)
 
 def main():
     parser = argparse.ArgumentParser(description="Extract inputs from HCL files and save to JSON.")
