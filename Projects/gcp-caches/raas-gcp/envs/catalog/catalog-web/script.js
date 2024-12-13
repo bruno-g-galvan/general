@@ -229,11 +229,11 @@ function generateTable(data, priceData, linksData) {
                 <td>${memorySize || capacity || 'N/A'}</td>
                 <td>${entry.cache_cname || 'N/A'}</td>
                 <td>
-                    ${entry.jira_ticket ? `<a href="https://jira.groupondev.com/browse/${entry.jira_ticket}" target="_blank">${entry.jira_ticket}</a>` : 'N/A'}
+                    ${entry.jira_ticket ? `<a href="https://jira.groupondev.com/browse/${entry.jira_ticket.toUpperCase()}" target="_blank">${entry.jira_ticket.toUpperCase()}</a>` : 'N/A'}
                 </td>
                 <td>${price || 'N/A'}</td>
                 <td>
-                    ${link ? `<a href="${link}" target="_blank">Link</a>` : 'N/A'}
+                    ${link ? `<a href="${link}" target="_blank"><i class="fa-solid fa-chart-line"></i></a>` : 'N/A'}
                 </td>
             </tr>
         `;

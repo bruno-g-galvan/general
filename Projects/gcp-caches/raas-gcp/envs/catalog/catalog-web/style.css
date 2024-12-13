@@ -6,7 +6,7 @@
 }
 /* Body styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif; /* Use Roboto font */
     background-color: #f4f4f9;
     color: #333;
     margin: 20px;
