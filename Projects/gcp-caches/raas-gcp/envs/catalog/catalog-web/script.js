@@ -11,16 +11,24 @@ document.getElementById('type-filter').addEventListener('change', function() {
 document.getElementById('env-filter').addEventListener('change', function() {
     filterTable(); // Call filterTable on change without passing arguments
 });
+document.getElementById('search-box').addEventListener('input', function() {
+    filterTable(); // Call filterTable on change without passing arguments
+});
 // Function to filter and generate the table based on the selected filters
 function filterTable() {
     const regionFilter = document.getElementById('region-filter').value.toLowerCase();
     const typeFilter = document.getElementById('type-filter').value.toLowerCase();
     const envFilter = document.getElementById('env-filter').value.toLowerCase();
+    const searchBox = document.getElementById('search-box').value.toLowerCase();
     console.log("Filters - Region: ", regionFilter, " Type: ", typeFilter, " Env: ", envFilter);  // Debugging log
     const filteredData = allData.filter(entry => {
         let matches = true;
         // Filter out entries where name is 'N/A'
         if (entry.name === 'N/A') {
+            matches = false;
+        }
+        // Filter by search-box
+        if (searchBox && entry.name && !entry.name.toLowerCase().includes(searchBox)) {
             matches = false;
         }
         // Filter by region
