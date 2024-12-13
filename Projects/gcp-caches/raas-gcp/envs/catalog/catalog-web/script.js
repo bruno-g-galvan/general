@@ -150,12 +150,20 @@ Promise.all([
     generateTable(allData, priceData, linksData);  // Ensure the table is generated initially
 }).catch(error => console.error('Error fetching data:', error));
 // Function to calculate the Tier according to memory size
-function getNodeType(memory_size) {
-    if (memory_size >= 1 && memory_size <= 4) return 'M1';
-    if (memory_size >= 5 && memory_size <= 10) return 'M2';
-    if (memory_size >= 11 && memory_size <= 35) return 'M3';
-    if (memory_size >= 36 && memory_size <= 100) return 'M4';
-    if (memory_size > 100 && memory_size < 1000) return 'M5';
+function getNodeType(memory_size, type) {
+    if (type !== 'memcached'){
+        if (memory_size >= 1 && memory_size <= 4) {
+            return 'M1';
+        } else if (memory_size >= 5 && memory_size <= 10) {
+            return 'M2';
+        } else if (memory_size >= 11 && memory_size <= 35) {
+            return 'M3';
+        } else if (memory_size >= 36 && memory_size <= 100) {
+            return 'M4';
+        } else if (memory_size > 100 && memory_size < 1000) {
+            return 'M5';
+        }
+    }
 }
 // Function to calculate the capacity based on node type and shard count
 function getCapNodeType(node_type, shard_count) {
@@ -204,7 +212,7 @@ function generateTable(data, priceData, linksData) {
         const env = entry.env || ''; 
         const name = entry.name || '';  
         const shardCount = entry.shard_count || 0;
-        const instanceType = getNodeType(memorySize);
+        const instanceType = getNodeType(memorySize, type);
         const capacity = getCapNodeType(nodeType, shardCount);
         const price = getPricing(priceData, region, type, nodeType, instanceType, memorySize, shardCount, nodeCount);
         const link = getLink(linksData, env, region, type, name);
