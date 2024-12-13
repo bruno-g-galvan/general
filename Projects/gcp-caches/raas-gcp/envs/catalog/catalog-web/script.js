@@ -1,6 +1,43 @@
 let allData = [];
 let priceData = {};
 let linksData = {};
+
+// Pagination variables
+let currentPage = 1;
+const resultsPerPage = 10;
+let filteredData = []; // To store filtered data for pagination
+
+// Function to handle pagination controls
+function updatePaginationControls() {
+    const totalPages = Math.ceil(filteredData.length / resultsPerPage);
+    document.getElementById('page-counter').textContent = `Page ${currentPage} of ${totalPages || 1}`;
+    document.getElementById('prev-btn').disabled = currentPage === 1;
+    document.getElementById('next-btn').disabled = currentPage === totalPages || totalPages === 0;
+}
+
+// Function to generate the table with pagination
+function generateTable(data, priceData, linksData) {
+    filteredData = data; // Store the current filtered data for pagination
+    renderTablePage();
+    updatePaginationControls();
+}
+
+// Event listeners for pagination buttons
+document.getElementById('prev-btn').addEventListener('click', () => {
+    if (currentPage > 1) {
+        currentPage--;
+        renderTablePage();
+    }
+});
+
+document.getElementById('next-btn').addEventListener('click', () => {
+    const totalPages = Math.ceil(filteredData.length / resultsPerPage);
+    if (currentPage < totalPages) {
+        currentPage++;
+        renderTablePage();
+    }
+});
+
 // Add event listeners for filters
 document.getElementById('region-filter').addEventListener('change', function() {
     filterTable(); // Call filterTable on change without passing arguments
@@ -15,37 +52,27 @@ document.getElementById('search-box').addEventListener('input', function() {
     filterTable(); // Call filterTable on change without passing arguments
 });
 // Function to filter and generate the table based on the selected filters
+// Update `filterTable` to reset the page to 1 when filters change
 function filterTable() {
     const regionFilter = document.getElementById('region-filter').value.toLowerCase();
     const typeFilter = document.getElementById('type-filter').value.toLowerCase();
     const envFilter = document.getElementById('env-filter').value.toLowerCase();
     const searchBox = document.getElementById('search-box').value.toLowerCase();
-    console.log("Filters - Region: ", regionFilter, " Type: ", typeFilter, " Env: ", envFilter);  // Debugging log
-    const filteredData = allData.filter(entry => {
+
+    console.log("Filters - Region: ", regionFilter, " Type: ", typeFilter, " Env: ", envFilter);
+
+    filteredData = allData.filter(entry => {
         let matches = true;
-        // Filter out entries where name is 'N/A'
-        if (entry.name === 'N/A') {
-            matches = false;
-        }
-        // Filter by search-box
-        if (searchBox && entry.name && !entry.name.toLowerCase().includes(searchBox)) {
-            matches = false;
-        }
-        // Filter by region
-        if (regionFilter && entry.region && !entry.region.toLowerCase().includes(regionFilter)) {
-            matches = false;
-        }
-        // Filter by type
-        if (typeFilter && entry.type && !entry.type.toLowerCase().includes(typeFilter)) {
-            matches = false;
-        }
-        // Filter by env
-        if (envFilter && entry.env && !entry.env.toLowerCase().includes(envFilter)) {
-            matches = false;
-        }
+        if (entry.name === 'N/A') matches = false;
+        if (searchBox && entry.name && !entry.name.toLowerCase().includes(searchBox)) matches = false;
+        if (regionFilter && entry.region && !entry.region.toLowerCase().includes(regionFilter)) matches = false;
+        if (typeFilter && entry.type && !entry.type.toLowerCase().includes(typeFilter)) matches = false;
+        if (envFilter && entry.env && !entry.env.toLowerCase().includes(envFilter)) matches = false;
         return matches;
     });
-    generateTable(filteredData, priceData, linksData);  // Re-generate table with filtered data
+
+    currentPage = 1; // Reset to the first page
+    generateTable(filteredData, priceData, linksData);
 }
 // Fetch all data
 async function fetchData() {
@@ -200,17 +227,23 @@ function getLink(linksData, env, region, type, name) {
     }
 }
 // Function to generate the table
-function generateTable(data, priceData, linksData) {
+function renderTablePage() {
     const tableBody = document.getElementById('table-body');
+    tableBody.innerHTML = ''; // Clear existing table data
+
+    const start = (currentPage - 1) * resultsPerPage;
+    const end = start + resultsPerPage;
+    const pageData = filteredData.slice(start, end);
+
     let rowsHTML = '';
-    for (const entry of data) {
+    for (const entry of pageData) {
         const memorySize = entry.memory_size || 0;
         const nodeType = entry.node_type || '';
-        const nodeCount = entry.node_count || ''; 
-        const type = entry.type || ''; 
+        const nodeCount = entry.node_count || '';
+        const type = entry.type || '';
         const region = entry.region || '';
-        const env = entry.env || ''; 
-        const name = entry.name || '';  
+        const env = entry.env || '';
+        const name = entry.name || '';
         const shardCount = entry.shard_count || 0;
         const instanceType = getNodeType(memorySize, type);
         const capacity = getCapNodeType(nodeType, shardCount);
@@ -239,6 +272,7 @@ function generateTable(data, priceData, linksData) {
         `;
     }
     tableBody.innerHTML = rowsHTML;
+    updatePaginationControls();
 }
 // Fetch and load data
 fetchData();
