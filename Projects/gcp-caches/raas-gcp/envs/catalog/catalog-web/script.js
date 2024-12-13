@@ -1,5 +1,6 @@
 let allData = [];
 let priceData = {};
+let linksData = {};
 
 // Add event listeners for filters
 document.getElementById('region-filter').addEventListener('change', function() {
@@ -46,7 +47,7 @@ function filterTable() {
         return matches;
     });
 
-    generateTable(filteredData, priceData);  // Re-generate table with filtered data
+    generateTable(filteredData, priceData, linksData);  // Re-generate table with filtered data
 }
 
 // Fetch all data
@@ -63,18 +64,27 @@ async function fetchData() {
             )
         );
 
-        const fetchedPriceData = await fetch(priceFile)
+        const fetchedPriceData = await fetch(pricesFile)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`Error loading price file ${priceFile}: ${response.statusText}`);
+                    throw new Error(`Error loading price file ${pricesFile}: ${response.statusText}`);
+                }
+                return response.json(); // Parse the price JSON data
+            });
+
+        const fetchedLinksData = await fetch(linksFile)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Error loading price file ${linksFile}: ${response.statusText}`);
                 }
                 return response.json(); // Parse the price JSON data
             });
 
         allData = dataArrays.flatMap(data => Object.values(data)); // Flatten all the data files
         priceData = fetchedPriceData;
+        linksData = fetchedLinksData;
 
-        generateTable(allData, priceData); // Initial table generation
+        generateTable(allData, priceData, linksData); // Initial table generation
     } catch (error) {
         console.error('Error fetching data:', error);
     }
@@ -93,7 +103,8 @@ const jsonFiles = [
 ];
 
 // Path to the new JSON file with prices
-const priceFile = 'prices.json';
+const pricesFile = 'prices.json';
+const linksFile = 'links.json';
 
 Promise.all([
     // Fetch the other JSON files (without prices)
@@ -113,18 +124,31 @@ Promise.all([
         )
     ),
     // Fetch the price JSON file separately
-    fetch(priceFile)
+    fetch(pricesFile)
         .then(response => {
             if (!response.ok) {
-                throw new Error(`Error loading price file ${priceFile}: ${response.statusText}`);
+                throw new Error(`Error loading price file ${pricesFile}: ${response.statusText}`);
             }
             return response.json(); // Parse the price JSON data
         })
         .catch(error => {
             console.error('Error loading price file:', error);
             return {}; // Return an empty object on error
+        }
+    ),
+    fetch(linksFile)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error loading price file ${linksFile}: ${response.statusText}`);
+            }
+            return response.json(); // Parse the price JSON data
         })
-]).then(([dataArrays, fetchedPriceData]) => {
+        .catch(error => {
+            console.error('Error loading price file:', error);
+            return {}; // Return an empty object on error
+        }
+    )
+]).then(([dataArrays, fetchedPriceData, fetchedLinksData]) => {
     // Flatten the object data into an array of entries (for the main JSON files)
     allData = dataArrays.flatMap(data => {
         return Object.values(data); // Flatten each file's object into an array of service entries
@@ -132,9 +156,10 @@ Promise.all([
 
     // Store the price data
     priceData = fetchedPriceData;
+    linksData = fetchedLinksData;
 
     // Generate the table with the main data
-    generateTable(allData, priceData);  // Ensure the table is generated initially
+    generateTable(allData, priceData, linksData);  // Ensure the table is generated initially
 }).catch(error => console.error('Error fetching data:', error));
 
 
@@ -180,8 +205,15 @@ function getPricing(priceData, region, type, nodeType, tier, memorySize, shardCo
     return 'N/A';
 }
 
+function getLink(linksData, env, region, type, name) {
+    // Check if the price exists for the given region, type, and tier (Redis Instances)
+    if (linksData[env] && linksData[env][region] && linksData[env][region][type] && linksData[env][region][type][name]) {
+        return linksData[env][region][type][name];
+    }
+}
+
 // Function to generate the table
-function generateTable(data, priceData) {
+function generateTable(data, priceData, linksData) {
     const tableBody = document.getElementById('table-body');
     let rowsHTML = '';
 
@@ -191,10 +223,13 @@ function generateTable(data, priceData) {
         const nodeCount = entry.node_count || ''; 
         const type = entry.type || ''; 
         const region = entry.region || ''; 
+        const env = entry.env || ''; 
+        const name = entry.name || ''; 
         const shardCount = entry.shard_count || 0;
         const node_type_redis_instance = getNodeType(memorySize);
         const capacity = getCapNodeType(nodeType, shardCount);
         const price = getPricing(priceData, region, type, nodeType, node_type_redis_instance, memorySize, shardCount, nodeCount);
+        const link = getLink(linksData, env, region, type, name);
 
         rowsHTML += `
             <tr>
@@ -213,7 +248,7 @@ function generateTable(data, priceData) {
                 </td>
                 <td>${price || 'N/A'}</td>
                 <td>
-                    ${entry.service ? `<a href="https://grafana.com/" target="_blank"><i class="fas fa-chart-line"></i></a>` : 'N/A'}
+                    ${link ? `<a href="${link}" target="_blank">Link</a>` : 'N/A'}
                 </td>
             </tr>
         `;
