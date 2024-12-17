@@ -71,6 +71,9 @@ function filterTable() {
         return matches;
     });
 
+    // Sort the filteredData alphabetically by the 'name' field
+    filteredData.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+
     currentPage = 1; // Reset to the first page
     generateTable(filteredData, priceData, linksData);
 }
@@ -101,7 +104,9 @@ async function fetchData() {
             }
             return response.json(); // Parse the price JSON data
         });
-        allData = dataArrays.flatMap(data => Object.values(data)); // Flatten all the data files
+        allData = dataArrays.flatMap(data => Object.values(data))
+            .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+
         priceData = fetchedPriceData;
         linksData = fetchedLinksData;
 
@@ -176,6 +181,7 @@ Promise.all([
     // Generate the table with the main data
     generateTable(allData, priceData, linksData);  // Ensure the table is generated initially
 }).catch(error => console.error('Error fetching data:', error));
+
 // Function to calculate the Tier according to memory size
 function getNodeType(memory_size, type) {
     if (type !== 'memcached'){

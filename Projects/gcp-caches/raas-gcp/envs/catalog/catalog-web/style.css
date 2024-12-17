@@ -66,10 +66,15 @@ table {
     border-radius: 8px;
     overflow: hidden;
 }
+/* Establecer un tamaño más amplio para las celdas de la tabla */
 th, td {
     padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    white-space: nowrap;         /* Prevent text from breaking into new lines */
+    overflow-x: auto;            /* Enable horizontal scrolling */
+    max-width: 200px;            /* Set a max-width for the cell */
+    -webkit-overflow-scrolling: touch; /* Enables smooth scrolling on touch devices */
 }
 th {
     background-color: #0056b3;
@@ -78,6 +83,7 @@ th {
 }
 td {
     font-size: 14px;
+    border: 1px solid #ddd;    /* Optional: Add a border to differentiate cells */
 }
 /* Hover effect for table rows */
 tr:hover {
@@ -97,3 +103,52 @@ tr:hover {
         padding: 10px;
     }
 }
+
+/* Estilo para el contenedor de paginación */
+#pagination-controls {
+    display: flex;
+    justify-content: flex-start; /* Alinea al borde izquierdo */
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+/* Estilo para los botones "Previous" y "Next" */
+#pagination-controls button {
+    background-color: #0056b3; /* Azul similar a los encabezados */
+    color: #ffffff; /* Texto blanco */
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+#pagination-controls button:hover {
+    background-color: #004494; /* Azul más oscuro */
+    transform: scale(1.05);
+}
+
+/* Deshabilitar botones */
+#pagination-controls button:disabled {
+    background-color: #cccccc; /* Gris claro */
+    color: #666666; /* Texto gris */
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Estilo para el contador de páginas */
+#page-counter {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+    margin: 0 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
